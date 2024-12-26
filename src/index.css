@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles that complement Tailwind */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +12,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Global transition for theme changes */
+* {
+  transition: background-color 0.2s ease, color 0.15s ease;
+}
+
+/* Theme classes handled by themeStyles.ts */
+.light {
+  background-color: #ffffff;
+  color: black;
+}
+
+.dark {
+  background-color: #17191a;
+  color: white;
 }
