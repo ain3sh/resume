@@ -18,11 +18,15 @@ interface ResumeProps {
 
 const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
     const themeStyles = getThemeStyles(theme);
-    const { personalInfo, education, experience, projects, skills, publications, additionalQualifications } = data;
+    const {
+        personalInfo, education, experience,
+        projects, skills, publications,
+        additionalQualifications
+    } = data;
 
     return (
         <div
-            className="max-w-5xl mx-auto p-8 shadow-lg" 
+            className="max-w-5xl mx-auto p-8 shadow-lg"
             style={{
                 backgroundColor: themeStyles.background,
                 color: themeStyles.text,
@@ -88,29 +92,29 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
                 <div>
-                    <EducationSection 
+                    <EducationSection
                         education={education}
                         theme={theme}
                     />
-                    <ProjectsSection 
+                    <PublicationsSection
+                        publications={publications}
+                        theme={theme}
+                    />
+                    <ProjectsSection
                         projects={projects}
                         theme={theme}
                     />
-                    <SkillsSection 
+                    <SkillsSection
                         skills={skills}
                         theme={theme}
                     />
                 </div>
                 <div>
-                    <ExperienceSection 
+                    <ExperienceSection
                         experience={experience}
                         theme={theme}
                     />
-                    <PublicationsSection 
-                        publications={publications}
-                        theme={theme}
-                    />
-                    <AdditionalQualificationsSection 
+                    <AdditionalQualificationsSection
                         qualifications={additionalQualifications}
                         theme={theme}
                     />

@@ -24,7 +24,7 @@ export const smallResumeData: ResumeData = {
             "Dual BS in Computer Science (Machine Learning+Quantum Information) and Mathematics"
         ],
         graduation: "May 2026",
-        gpa: "3.554",
+        gpa: "3.5",
         honors: ["University + CS Departmental Honors, Dean's List"],
         coursework: [
             {
@@ -171,11 +171,17 @@ export const smallResumeData: ResumeData = {
     ],
     publications: [
         {
-        title: "Ipelets for the Convex Polygonal Geometry",
-        url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92",
-        venue: "SoCG 2024",
-        year: "2024"
-        }
+            title: "Ipelets for the Convex Polygonal Geometry",
+            url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92",
+            venue: "SoCG 2024",
+            year: "2024"
+        },
+        {
+            title: "AgreeMate: Teaching LLMs to Haggle",
+            url: "https://arxiv.org/abs/2412.18690",
+            venue: "arXiv",
+            year: "2024"
+        },
     ],
     additionalQualifications: [
         {
