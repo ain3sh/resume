@@ -75,7 +75,7 @@ export interface PersonalInfo {
     location: string;
     clearance?: string;
     links: {
-        type: 'linkedin' | 'github' | 'other';
+        type: 'site' | 'linkedin' | 'github' | 'other';
         url: string;
         label?: string;
     }[];
