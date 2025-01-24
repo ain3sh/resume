@@ -69,10 +69,20 @@ async function generatePDFs() {
             console.log('Resume container ready');
 
             // generate PDF
-            await page.evaluate(() => {
+            const clicked = await page.evaluate(() => {
                 const downloadButton = document.querySelector('button[aria-label*="Download"]');
-                if (downloadButton) downloadButton.click();
+                if (downloadButton) {
+                    downloadButton.click();
+                    return true; // successful click
+                }
+
+                return false; // button not found
             });
+            if (clicked) {
+                console.log("✅ Download button found and clicked.");
+            } else {
+                console.warn("⚠️ WARNING: Download button not found! PDF may not be generated.");
+            }
 
             // verify download
             const expectedFileName = `${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
