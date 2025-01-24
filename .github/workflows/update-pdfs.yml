@@ -24,7 +24,6 @@ jobs:
       - name: Install Puppeteer
         run: | # prevent updates to package.json
           npm install puppeteer@latest --no-save
-          npm install @types/puppeteer@latest --no-save
 
       - name: Generate PDFs
         id: generate_pdfs
@@ -33,12 +32,19 @@ jobs:
         env:
           VERCEL_URL: ${{ secrets.VERCEL_URL }}
 
-      - name: Check PDF generation
+      - name: Clear PDFs Directory
         run: |
-          echo "Checking pdfs directory contents:"
+          echo "🔄 Clearing existing PDFs..."
+          rm -rf pdfs/
+          mkdir -p pdfs/
+          echo "✅ PDFs directory reset."
+
+      - name: Validate PDF generation
+        run: |
+          echo "📂 Checking PDF directory contents:"
           ls -la pdfs/
           if [ ! -d "pdfs" ] || [ -z "$(ls -A pdfs/)" ]; then
-            echo "Error: PDFs were not generated correctly"
+            echo "❌ Error: No PDFs generated. Aborting commit."
             exit 1
           fi
 
@@ -47,9 +53,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          echo "Git status before add:"
-          git status
-
+          echo "🔎 Checking for changes in pdfs/..."
           git add pdfs/ # only add pdfs directory
 
           echo "Git status after add:"
@@ -68,6 +72,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "✅ No changes to commit"
           else
+            echo "📝 Committing updated PDFs..."
             git commit -m "Update PDFs [skip ci]"
             git push
           fi
