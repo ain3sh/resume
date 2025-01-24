@@ -25,12 +25,6 @@ jobs:
         run: | # prevent updates to package.json
           npm install puppeteer@latest --no-save
 
-      - name: Generate PDFs
-        id: generate_pdfs
-        run: |
-          node .github/scripts/generate-pdfs.js
-        env:
-          VERCEL_URL: ${{ secrets.VERCEL_URL }}
 
       - name: Clear PDFs Directory
         run: |
@@ -38,6 +32,13 @@ jobs:
           rm -rf pdfs/
           mkdir -p pdfs/
           echo "✅ PDFs directory reset."
+
+      - name: Generate PDFs
+        id: generate_pdfs
+        run: |
+          node .github/scripts/generate-pdfs.js
+        env:
+          VERCEL_URL: ${{ secrets.VERCEL_URL }}
 
       - name: Validate PDF generation
         run: |
@@ -47,6 +48,7 @@ jobs:
             echo "❌ Error: No PDFs generated. Aborting commit."
             exit 1
           fi
+
 
       - name: Commit and push if changed
         run: |
