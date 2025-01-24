@@ -40,11 +40,15 @@ async function generatePDFs() {
             const url = `${VERCEL_URL}?theme=${config.isDark ? 'dark' : 'light'}&version=${config.isFull ? 'full' : 'min'}&compressed=${config.isCompressed}`;
             console.log('Processing Variant:', url);
 
-            // wait till only 2 network requests active, and timeout after 90s
-            await page.goto(url, { waitUntil: 'networkidle2', timeout: 90000 }).catch(err => {
+            try { // wait till html is parsed, timeout after 90s
+                await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 }).catch(err => {
+                    console.error('Navigation failed:', err);
+                });
+                console.log('Page loaded');
+            } catch (err) {
                 console.error('Navigation failed:', err);
-            });
-            console.log('Page loaded');
+                return; // exit early
+            }
 
             // wait for the resume to be ready
             await page.waitForSelector('#resume-container');
