@@ -12,6 +12,19 @@ const PDF_CONFIGS = [
 ];
 
 
+async function waitForFile(filePath, timeout) {
+    const start = Date.now();
+    while (Date.now() - start < timeout) {
+        try {
+            await fs.access(filePath);
+            return true;
+        } catch (err) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+    }
+    return false;
+}
+
 async function generatePDFs() {
     console.log('Starting PDF generation...');
     const browser = await puppeteer.launch({
@@ -30,7 +43,7 @@ async function generatePDFs() {
         console.log('PDF directory:', pdfDir);
 
         // set up download behavior to save to pdfs dir
-        const client = await page.createCDPSession();
+        const client = await page.target().createCDPSession();
         await client.send('Page.setDownloadBehavior', {
             behavior: 'allow',
             downloadPath: pdfDir
@@ -55,15 +68,21 @@ async function generatePDFs() {
             await page.waitForFunction('document.querySelector("#resume-container").getBoundingClientRect().height > 0');
             console.log('Resume container ready');
 
-            // click the download button to trigger PDF generation
+            // generate PDF
             await page.evaluate(() => {
                 const downloadButton = document.querySelector('button[aria-label*="Download"]');
                 if (downloadButton) downloadButton.click();
             });
 
-            // wait for PDF to be generated
+            // verify download
             const expectedFileName = `${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
-            await new Promise(r => setTimeout(r, 3000));
+            const filePath = path.join(pdfDir, expectedFileName);
+            const fileExists = await waitForFile(filePath, 15000); // wait up to 15s
+            if (fileExists) {
+                console.log(`✅ Successfully saved ${expectedFileName}`);
+            } else {
+                console.error(`❌ ERROR: PDF ${expectedFileName} was not saved!`);
+            }
 
             console.log(`Generated ${expectedFileName}`);
         }
