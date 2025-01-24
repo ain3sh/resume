@@ -77,6 +77,7 @@ jobs:
             echo "✅ No changes to commit"
           else
             echo "📝 Committing updated PDFs..."
-            git commit -m "Update PDFs [skip ci]"
+            # skip ci stops workflow runs (since just updating pdfs)
+            git commit -m "🤖 Auto-updated PDFs [skip ci]"
             git push
           fi

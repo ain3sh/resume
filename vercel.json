@@ -1,0 +1,5 @@
+{
+    "ignoreBuildStep": {
+        "files": ["pdfs/**", ".github/**", "README.md", "build/**"]
+    }
+}

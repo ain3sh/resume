@@ -7,6 +7,7 @@ resume/
     README.md
     tailwind.config.js
     tsconfig.json
+    vercel.json
         .git/
         .github/
             scripts/
@@ -225,6 +226,19 @@ File type: .json
         }
     },
     "include": ["src"]
+}
+
+--------------------------------------------------
+File End
+--------------------------------------------------
+
+
+.\vercel.json
+File type: .json
+{
+    "ignoreBuildStep": {
+        "files": ["pdfs/**", ".github/**", "README.md", "build/**"]
+    }
 }
 
 --------------------------------------------------
