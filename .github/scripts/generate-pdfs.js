@@ -70,7 +70,7 @@ async function generatePDFs() {
 
             // generate PDF
             const clicked = await page.evaluate(() => {
-                const downloadButton = document.querySelector('button[aria-label*="Download"]');
+                const downloadButton = document.querySelector('button[aria-label*="Download Resume PDF"]');
                 if (downloadButton) {
                     downloadButton.click();
                     return true; // successful click
