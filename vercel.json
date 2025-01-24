@@ -1,5 +1,3 @@
 {
-    "ignoreBuildStep": {
-        "files": ["pdfs/**", ".github/**", "README.md", "build/**"]
-    }
+    "ignoreCommand": "git diff --quiet HEAD^ HEAD -- pdfs .github README.md build"
 }
