@@ -22,9 +22,9 @@ jobs:
           cache: 'npm' # enable npm cache
 
       - name: Install Puppeteer
-        run: |
-          npm install puppeteer@latest
-          npm install @types/puppeteer@latest
+        run: | # prevent updates to package.json
+          npm install puppeteer@latest --no-save
+          npm install @types/puppeteer@latest --no-save
 
       - name: Generate PDFs
         id: generate_pdfs
@@ -46,14 +46,27 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
           echo "Git status before add:"
           git status
-          git add pdfs/
+
+          git add pdfs/ # only add pdfs directory
+
           echo "Git status after add:"
           git status
-          git diff --staged --name-status
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes to commit"
+
+          # check for unexpected changes outside pdfs/
+          UNEXPECTED_CHANGES=$(git diff --name-only --diff-filter=M | grep -v '^pdfs/' || true)
+          if [ -n "$UNEXPECTED_CHANGES" ]; then
+            echo "❌ Unexpected changes detected outside pdfs/:"
+            echo "$UNEXPECTED_CHANGES"
+            echo "🚨 Exiting to prevent unintended commits."
+            exit 1
+          fi
+
+          # commit only if there are changes in pdfs/
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit"
           else
             git commit -m "Update PDFs [skip ci]"
             git push
