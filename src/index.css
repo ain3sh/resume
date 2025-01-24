@@ -4,26 +4,26 @@
 
 /* Base styles that complement Tailwind */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Global transition for theme changes */
 * {
-  transition: background-color 0.2s ease, color 0.15s ease;
+    transition: background-color 0.2s ease, color 0.15s ease;
 }
 
 /* Theme classes handled by themeStyles.ts */
 .light {
-  background-color: #ffffff;
-  color: black;
+    background-color: #ffffff;
+    color: black;
 }
 
 .dark {
-  background-color: #17191a;
-  color: white;
+    background-color: #17191a;
+    color: white;
 }

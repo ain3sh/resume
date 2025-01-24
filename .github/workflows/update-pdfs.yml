@@ -1,0 +1,41 @@
+name: Update PDFs
+on: 
+  workflow_dispatch: # manual trigger
+  push:
+      branches: [ main ]
+      paths:
+        - 'src/**'        # trigger on source changes
+        - 'public/**'     # and public asset changes
+        - 'data/**'       # and data changes
+
+jobs:
+  update-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Puppeteer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Install dependencies
+        run: npm install puppeteer
+
+      - name: Generate PDFs
+        run: |
+          node .github/scripts/generate-pdfs.js
+        env:
+          VERCEL_URL: ${{ secrets.VERCEL_URL }}
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add pdfs/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update PDFs [skip ci]" && git push)

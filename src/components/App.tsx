@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Sun, Moon, Maximize2, Minimize2, Shrink, Expand, FileDown } from 'lucide-react';
+import { useRef, useState, useEffect } from 'react';
 import '../index.css';
 import ResumeMeasureWrapper from './ResumeMeasureWrapper';
+import Controls from './utils/Controls';
 import { generatePDF } from './utils/customPDFGenerator';
 import { ThemeMode } from './utils/themeStyles';
 import resumeData from '../data/resumeData';
@@ -54,87 +54,62 @@ const App = () => {
         }
     };
 
+    const generateAllPDFs = async () => { // generate all PDFs with Ctrl/Cmd + Shift + P
+        if (!isPDFReady || !targetRef.current || !contentRect) return;
+
+        const configs = [ // format combinations to generate
+            { isDark: true, isFull: true, isCompressed: true },
+            { isDark: false, isFull: true, isCompressed: true },
+            { isDark: true, isFull: false, isCompressed: true },
+            { isDark: false, isFull: false, isCompressed: true }
+        ];
+
+        // store original states
+        const originalStates = {
+            isDark: isDarkMode,
+            isFull: isFullResume,
+            isCompressed: isCompressed
+        };
+
+        // generate each PDF
+        for (const config of configs) {
+            // update states
+            setIsDarkMode(config.isDark);
+            setIsFullResume(config.isFull);
+            setIsCompressed(config.isCompressed);
+
+            // wait for render
+            await new Promise(resolve => setTimeout(resolve, 100));
+
+            // generate PDF
+            const pdfFileName = `${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
+            await generatePDF(targetRef.current, config.isFull ? resumeData : smallResumeData, pdfFileName, {
+                scale: config.isCompressed ? 2 : 5,
+                compress: config.isCompressed,
+                linkYOffset: 18
+            });
+        }
+
+        // restore original states
+        setIsDarkMode(originalStates.isDark);
+        setIsFullResume(originalStates.isFull);
+        setIsCompressed(originalStates.isCompressed);
+    };
+
 
     return (
         <div className={currentTheme}>
-            <div className="w-full flex justify-end px-6 space-x-4">
-                <div className="flex space-x-4">
-                    {/* Theme Toggle */}
-                    <button
-                        className="relative w-20 h-10 mt-4 rounded-full p-1 bg-gray-100 dark:bg-gray-800 transition-colors duration-200 ease-in-out"
-                        onClick={toggleTheme}
-                        aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} mode`}
-                    >
-                        <div
-                            className={`absolute top-1 left-1 flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 transform transition-transform duration-200 ease-in-out ${
-                                isDarkMode ? 'translate-x-10' : 'translate-x-0'
-                            }`}
-                        >
-                            {isDarkMode ? (
-                                <Moon size={16} className="text-gray-100" />
-                            ) : (
-                                <Sun size={16} className="text-gray-800" />
-                            )}
-                        </div>
-                        <span className="sr-only">Toggle theme</span>
-                    </button>
-
-                    {/* Version Toggle */}
-                    <button
-                        className="relative w-20 h-10 mt-4 rounded-full p-1 bg-gray-100 dark:bg-gray-800 transition-colors duration-200 ease-in-out"
-                        onClick={toggleResumeVersion}
-                        aria-label={`Currently showing ${isFullResume ? 'full' : 'condensed'} resume`}
-                    >
-                        <div
-                            className={`absolute top-1 left-1 flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 transform transition-transform duration-200 ease-in-out ${
-                                isFullResume ? 'translate-x-10' : 'translate-x-0'
-                            }`}
-                        >
-                            {isFullResume ? (
-                                <Maximize2 size={16} className="text-gray-800 dark:text-gray-100" />
-                            ) : (
-                                <Minimize2 size={16} className="text-gray-800 dark:text-gray-100" />
-                            )}
-                        </div>
-                        <span className="sr-only">Toggle resume version</span>
-                    </button>
-                </div>
-
-                {/* Spacer */}
-                <div className="mx-6"></div>
-
-                <div className="flex space-x-4">
-                    {/* Compression Toggle */}
-                    <button
-                        className="relative w-20 h-10 mt-4 rounded-full p-1 bg-gray-100 dark:bg-gray-800 transition-colors duration-200 ease-in-out"
-                        onClick={() => setIsCompressed(!isCompressed)}
-                        aria-label={`Currently ${isCompressed ? 'compressed' : 'uncompressed'} PDF`}
-                    >
-                        <div
-                            className={`absolute top-1 left-1 flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 transform transition-transform duration-200 ease-in-out ${
-                                isCompressed ? 'translate-x-0' : 'translate-x-10'
-                            }`}
-                        >
-                            {isCompressed ? (
-                                <Shrink size={16} className="text-gray-800 dark:text-gray-100" />
-                            ) : (
-                                <Expand size={16} className="text-gray-800 dark:text-gray-100" />
-                            )}
-                        </div>
-                        <span className="sr-only">Toggle PDF compression</span>
-                    </button>
-
-                    {/* PDF Generation */}
-                    <button
-                        className="flex mt-4 items-center px-3 py-2 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-100 rounded-full transition-colors duration-200 ease-in-out"
-                        onClick={generatePDFHandler}
-                        disabled={!isPDFReady}
-                    >
-                        <FileDown size={18} />
-                    </button>
-                </div>
-            </div>
-
+            <Controls
+                isDarkMode={isDarkMode}
+                isFullResume={isFullResume}
+                isCompressed={isCompressed}
+                toggleTheme={toggleTheme}
+                toggleResumeVersion={toggleResumeVersion}
+                setIsCompressed={setIsCompressed}
+                generatePDFHandler={generatePDFHandler}
+                isPDFReady={isPDFReady}
+                generateAllPDFs={generateAllPDFs}
+            />
 
             <div ref={targetRef} id="resume-container">
                 <ResumeMeasureWrapper
