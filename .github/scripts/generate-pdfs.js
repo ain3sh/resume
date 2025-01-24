@@ -25,13 +25,12 @@ async function generatePDFs() {
         page.on('console', msg => console.log('Browser console:', msg.text()));
 
         const pdfDir = path.join(process.cwd(), 'pdfs');
+        await fs.mkdir(pdfDir, { recursive: true });
         console.log('PDF directory:', pdfDir);
 
-        // ensure pdfs directory exists
-        await fs.mkdir(pdfDir, { recursive: true });
-
         // set up download behavior to save to pdfs dir
-        await page._client.send('Page.setDownloadBehavior', {
+        const client = await page.createCDPSession();
+        await client.send('Page.setDownloadBehavior', {
             behavior: 'allow',
             downloadPath: pdfDir
         });
