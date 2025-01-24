@@ -21,13 +21,12 @@ jobs:
           node-version: '18'
           cache: 'npm' # enable npm cache
 
-      - name: Install dependencies
-        run: npm ci  # using ci instead of install for cleaner, reproducible builds
-
-      - name: Install Puppeteer dependencies
+      - name: Install Puppeteer and dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
+          npm install puppeteer@latest
+          sudo apt-get install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 \
+            libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxfixes3 \
+            libxrandr2 libgbm1 libasound2 libpangocairo-1.0-0 libpangoft2-1.0-0
 
       - name: Generate PDFs
         id: generate_pdfs

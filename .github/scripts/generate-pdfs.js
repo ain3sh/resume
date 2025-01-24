@@ -15,8 +15,9 @@ const PDF_CONFIGS = [
 async function generatePDFs() {
     console.log('Starting PDF generation...');
     const browser = await puppeteer.launch({
-        headless: 'new',
-        args: ['--no-sandbox']
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || puppeteer.executablePath(),
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     try {
@@ -39,7 +40,10 @@ async function generatePDFs() {
             const url = `${VERCEL_URL}?theme=${config.isDark ? 'dark' : 'light'}&version=${config.isFull ? 'full' : 'min'}&compressed=${config.isCompressed}`;
             console.log('Processing Variant:', url);
 
-            await page.goto(url, { waitUntil: 'networkidle0' });
+            // wait till only 2 network requests active, and timeout after 90s
+            await page.goto(url, { waitUntil: 'networkidle2', timeout: 90000 }).catch(err => {
+                console.error('Navigation failed:', err);
+            });
             console.log('Page loaded');
 
             // wait for the resume to be ready
