@@ -8,6 +8,8 @@ on:
         - 'public/**'
         - 'data/**'
         - '.github/**'
+permissions:
+  contents: write
 
 jobs:
   update-pdfs:
