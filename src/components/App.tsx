@@ -71,7 +71,7 @@ const App = () => {
             isCompressed: isCompressed
         };
 
-        // generate each PDF
+        // generate each PDF variant
         for (const config of configs) {
             // update states
             setIsDarkMode(config.isDark);
@@ -82,12 +82,7 @@ const App = () => {
             await new Promise(resolve => setTimeout(resolve, 100));
 
             // generate PDF
-            const pdfFileName = `${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
-            await generatePDF(targetRef.current, config.isFull ? resumeData : smallResumeData, pdfFileName, {
-                scale: config.isCompressed ? 2 : 5,
-                compress: config.isCompressed,
-                linkYOffset: 18
-            });
+            generatePDFHandler();
         }
 
         // restore original states

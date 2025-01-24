@@ -1,12 +1,12 @@
 name: Update PDFs
-on: 
+on:
   workflow_dispatch: # manual trigger
   push:
       branches: [ main ]
-      paths:
-        - 'src/**'        # trigger on source changes
-        - 'public/**'     # and public asset changes
-        - 'data/**'       # and data changes
+      paths: # auto trigger on changes to these paths
+        - 'src/**'
+        - 'public/**'
+        - 'data/**'
 
 jobs:
   update-pdfs:
@@ -18,24 +18,45 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+          cache: 'npm' # enable npm cache
+
+      - name: Install dependencies
+        run: npm ci  # using ci instead of install for cleaner, reproducible builds
 
       - name: Install Puppeteer dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-browser
 
-      - name: Install dependencies
-        run: npm install puppeteer
-
       - name: Generate PDFs
+        id: generate_pdfs
         run: |
           node .github/scripts/generate-pdfs.js
         env:
           VERCEL_URL: ${{ secrets.VERCEL_URL }}
 
+      - name: Check PDF generation
+        run: |
+          echo "Checking pdfs directory contents:"
+          ls -la pdfs/
+          if [ ! -d "pdfs" ] || [ -z "$(ls -A pdfs/)" ]; then
+            echo "Error: PDFs were not generated correctly"
+            exit 1
+          fi
+
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          echo "Git status before add:"
+          git status
           git add pdfs/
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update PDFs [skip ci]" && git push)
+          echo "Git status after add:"
+          git status
+          git diff --staged --name-status
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update PDFs [skip ci]"
+            git push
+          fi
