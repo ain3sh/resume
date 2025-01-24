@@ -16,24 +16,39 @@ const App = () => {
     const [contentRect, setContentRect] = useState<DOMRect | null>(null);
     const [isPDFReady, setIsPDFReady] = useState(false);
 
-    useEffect(() => {
-        if (window.__REACT_THEME__) {
+    useEffect(() => { // update state from URL params
+        // check URL params
+        const params = new URLSearchParams(window.location.search);
+
+        // set states from URL if present
+        const theme = params.get('theme');
+        const version = params.get('version');
+        const compressed = params.get('compressed');
+
+        if (theme) {
+            setIsDarkMode(theme === 'dark');
+        } else if (window.__REACT_THEME__) {
+            // fall back to window theme if no URL param
             setIsDarkMode(window.__REACT_THEME__ === 'dark');
         }
-    }, []);
+        if (version) {
+            setIsFullResume(version === 'full');
+        }
+        if (compressed) {
+            setIsCompressed(compressed === 'true');
+        }
+    }, []); // run once on mount
 
+    // init data
     const currentTheme: ThemeMode = isDarkMode ? 'dark' : 'light';
     const currentData = isFullResume ? resumeData : smallResumeData;
     const currentScale = isCompressed ? 2 : 5; // adjust scale (2 = compressed, 5 = raw)
-
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
     };
-
     const toggleResumeVersion = () => {
         setIsFullResume(!isFullResume);
     };
-
     const handleMeasure = (rect: DOMRect) => {
         setContentRect(rect);
         setIsPDFReady(true);
@@ -50,7 +65,7 @@ const App = () => {
                 //debug: true, // set to true to show red link bounding boxes in PDF
             })
                 .then(() => console.log("PDF generated successfully"))
-                .catch((error: Error) => console.error("Error generating PDF:", error));
+                .catch((error: Error) => console.error("Error generating PDF: ", error));
         }
     };
 
@@ -71,24 +86,27 @@ const App = () => {
             isCompressed: isCompressed
         };
 
-        // generate each PDF variant
-        for (const config of configs) {
-            // update states
-            setIsDarkMode(config.isDark);
-            setIsFullResume(config.isFull);
-            setIsCompressed(config.isCompressed);
+        try { // generate each PDF variant
+            for (const config of configs) {
+                // update states
+                setIsDarkMode(config.isDark);
+                setIsFullResume(config.isFull);
+                setIsCompressed(config.isCompressed);
 
-            // wait for render
-            await new Promise(resolve => setTimeout(resolve, 100));
+                // wait for render
+                await new Promise(resolve => setTimeout(resolve, 100));
 
-            // generate PDF
-            generatePDFHandler();
+                // generate PDF
+                generatePDFHandler();
+            }
+
+        } catch (error) {
+            console.error("Error generating PDFs: ", error);
+        } finally { // restore original states
+            setIsDarkMode(originalStates.isDark);
+            setIsFullResume(originalStates.isFull);
+            setIsCompressed(originalStates.isCompressed);
         }
-
-        // restore original states
-        setIsDarkMode(originalStates.isDark);
-        setIsFullResume(originalStates.isFull);
-        setIsCompressed(originalStates.isCompressed);
     };
 
 
