@@ -27,6 +27,12 @@ jobs:
         run: | # prevent updates to package.json
           npm install puppeteer@latest --no-save
 
+      - name: Wait for Vercel Deployment (2 minutes)
+        run: |
+          echo "⏳ Waiting for potential Vercel redeployment to complete..."
+          sleep 120
+          echo "✅ Proceeding with PDF generation."
+
 
       - name: Clear PDFs Directory
         run: |

@@ -8,7 +8,6 @@ resume/
     tailwind.config.js
     tsconfig.json
     vercel.json
-        .git/
         .github/
             scripts/
             workflows/
