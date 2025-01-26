@@ -5,6 +5,9 @@
         { "source": "/resume/", "destination": "/resume/index.html" },
         { "source": "/resume/static/:path*", "destination": "/static/:path*" },
         { "source": "/resume/manifest.json", "destination": "/manifest.json" },
+        { "source": "/resume/logo192.png", "destination": "/logo192.png" },
+        { "source": "/resume/logo512.png", "destination": "/logo512.png" },
+        { "source": "/resume/favicon.ico", "destination": "/favicon.ico" },
         { "source": "/resume/:path*", "destination": "/resume/index.html" }
     ]
 }
