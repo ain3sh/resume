@@ -57,7 +57,7 @@ const App = () => {
 
     const generatePDFHandler = () => {
         if (isPDFReady && targetRef.current && contentRect) {
-            const pdfFileName = `${isCompressed ? 'compressed' : 'raw'}-${isFullResume ? 'full' : 'min'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
+            const pdfFileName = `ain3sh-${isCompressed ? 'compressed' : 'raw'}-${isFullResume ? 'full' : 'min'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
             generatePDF(targetRef.current, currentData, pdfFileName, {
                 scale: currentScale,
                 compress: isCompressed, // compress pdf

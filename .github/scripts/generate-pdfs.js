@@ -89,7 +89,7 @@ async function generatePDFs() {
             }
 
             // verify download
-            const expectedFileName = `${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
+            const expectedFileName = `ain3sh-${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
             const filePath = path.join(pdfDir, expectedFileName);
             const fileExists = await waitForFile(filePath, 15000); // wait up to 15s
             if (fileExists) {

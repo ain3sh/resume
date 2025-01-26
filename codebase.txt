@@ -236,15 +236,7 @@ File End
 .\vercel.json
 File type: .json
 {
-    "ignoreCommand": "! git diff --quiet HEAD^ HEAD -- . ':!pdfs' ':!.github' ':!README.md' ':!build'",
-    "headers": [
-        {
-            "source": "/(.*)",
-            "headers": [
-                { "key": "X-GitHub-Actions", "value": "true" }
-            ]
-        }
-    ]
+    "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':!pdfs/' ':!.github/' ':!build/' ':!README.md'"
 }
 
 --------------------------------------------------
@@ -257,20 +249,20 @@ File type: .json
 {
   "files": {
     "main.css": "/static/css/main.5ef98920.css",
-    "main.js": "/static/js/main.ccd3cfe3.js",
+    "main.js": "/static/js/main.9a63c7f5.js",
     "static/js/213.bc2cca19.chunk.js": "/static/js/213.bc2cca19.chunk.js",
     "static/js/732.e48a4ec1.chunk.js": "/static/js/732.e48a4ec1.chunk.js",
     "static/js/453.f19e9853.chunk.js": "/static/js/453.f19e9853.chunk.js",
     "index.html": "/index.html",
     "main.5ef98920.css.map": "/static/css/main.5ef98920.css.map",
-    "main.ccd3cfe3.js.map": "/static/js/main.ccd3cfe3.js.map",
+    "main.9a63c7f5.js.map": "/static/js/main.9a63c7f5.js.map",
     "213.bc2cca19.chunk.js.map": "/static/js/213.bc2cca19.chunk.js.map",
     "732.e48a4ec1.chunk.js.map": "/static/js/732.e48a4ec1.chunk.js.map",
     "453.f19e9853.chunk.js.map": "/static/js/453.f19e9853.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5ef98920.css",
-    "static/js/main.ccd3cfe3.js"
+    "static/js/main.9a63c7f5.js"
   ]
 }
 
@@ -281,7 +273,7 @@ File End
 
 .\build\index.html
 File type: .html
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Interactive Resume Application"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Ainesh Chatterjee | Resume</title><script defer="defer" src="/static/js/main.ccd3cfe3.js"></script><link href="/static/css/main.5ef98920.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Interactive Resume Application"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Ainesh Chatterjee | Resume</title><script defer="defer" src="/static/js/main.9a63c7f5.js"></script><link href="/static/css/main.5ef98920.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
 
 --------------------------------------------------
 File End
@@ -664,7 +656,7 @@ const App = () => {
 
     const generatePDFHandler = () => {
         if (isPDFReady && targetRef.current && contentRect) {
-            const pdfFileName = `${isCompressed ? 'compressed' : 'raw'}-${isFullResume ? 'full' : 'min'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
+            const pdfFileName = `ain3sh-${isCompressed ? 'compressed' : 'raw'}-${isFullResume ? 'full' : 'min'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
             generatePDF(targetRef.current, currentData, pdfFileName, {
                 scale: currentScale,
                 compress: isCompressed, // compress pdf
