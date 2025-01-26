@@ -5,6 +5,6 @@
         { "source": "/resume/", "destination": "/resume/index.html" },
         { "source": "/resume/static/:path*", "destination": "/static/:path*" },
         { "source": "/resume/manifest.json", "destination": "/manifest.json" },
-        { "source": "/resume/*", "destination": "/resume/index.html" }
+        { "source": "/resume/:path*", "destination": "/resume/index.html" }
     ]
 }
