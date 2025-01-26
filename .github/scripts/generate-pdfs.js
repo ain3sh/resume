@@ -35,6 +35,10 @@ async function generatePDFs() {
 
     try {
         const page = await browser.newPage();
+
+        // spoof User-Agent to mark GitHub Actions traffic for Vercel Analytics to ignore
+        await page.setUserAgent("Mozilla/5.0 (GitHubActions-Puppeteer)");
+
         // console log listener
         page.on('console', msg => console.log('Browser console:', msg.text()));
 

@@ -105,6 +105,7 @@ File type: .json
         "@types/node": "^16.18.105",
         "@types/react": "^18.3.4",
         "@types/react-dom": "^18.3.0",
+        "@vercel/analytics": "^1.4.1",
         "jszip": "^3.10.1",
         "lucide-react": "^0.435.0",
         "puppeteer": "^23.11.1",
@@ -236,7 +237,15 @@ File End
 .\vercel.json
 File type: .json
 {
-    "ignoreCommand": "! git diff --quiet HEAD^ HEAD -- pdfs .github README.md build"
+    "ignoreCommand": "! git diff --quiet HEAD^ HEAD -- pdfs .github README.md build",
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "X-GitHub-Actions", "value": "true" }
+            ]
+        }
+    ]
 }
 
 --------------------------------------------------
@@ -249,20 +258,20 @@ File type: .json
 {
   "files": {
     "main.css": "/static/css/main.5ef98920.css",
-    "main.js": "/static/js/main.3dcea4e8.js",
+    "main.js": "/static/js/main.ccd3cfe3.js",
     "static/js/213.bc2cca19.chunk.js": "/static/js/213.bc2cca19.chunk.js",
     "static/js/732.e48a4ec1.chunk.js": "/static/js/732.e48a4ec1.chunk.js",
     "static/js/453.f19e9853.chunk.js": "/static/js/453.f19e9853.chunk.js",
     "index.html": "/index.html",
     "main.5ef98920.css.map": "/static/css/main.5ef98920.css.map",
-    "main.3dcea4e8.js.map": "/static/js/main.3dcea4e8.js.map",
+    "main.ccd3cfe3.js.map": "/static/js/main.ccd3cfe3.js.map",
     "213.bc2cca19.chunk.js.map": "/static/js/213.bc2cca19.chunk.js.map",
     "732.e48a4ec1.chunk.js.map": "/static/js/732.e48a4ec1.chunk.js.map",
     "453.f19e9853.chunk.js.map": "/static/js/453.f19e9853.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5ef98920.css",
-    "static/js/main.3dcea4e8.js"
+    "static/js/main.ccd3cfe3.js"
   ]
 }
 
@@ -273,7 +282,7 @@ File End
 
 .\build\index.html
 File type: .html
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Interactive Resume Application"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Ainesh Chatterjee | Resume</title><script defer="defer" src="/static/js/main.3dcea4e8.js"></script><link href="/static/css/main.5ef98920.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Interactive Resume Application"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>Ainesh Chatterjee | Resume</title><script defer="defer" src="/static/js/main.ccd3cfe3.js"></script><link href="/static/css/main.5ef98920.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
 
 --------------------------------------------------
 File End
@@ -460,14 +469,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { Analytics } from '@vercel/analytics/react';
+
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-root.render(
+// detect if running inside GitHub Actions Puppeteer
+const isGitHubAction = navigator.userAgent.includes('GitHubActions-Puppeteer');
+
+root.render( // render the app but don't render analytics if running in GitHub Actions
     <React.StrictMode>
         <App />
+        {!isGitHubAction && <Analytics />}
     </React.StrictMode>
 );
 
