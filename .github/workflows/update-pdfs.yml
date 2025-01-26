@@ -1,6 +1,6 @@
 name: Update PDFs
 on:
-  workflow_dispatch: # manual trigger
+  workflow_dispatch: # allows manual trigger
   push:
       branches: [ main ]
       paths: # auto trigger on changes to these paths
