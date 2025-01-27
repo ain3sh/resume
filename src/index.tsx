@@ -4,6 +4,7 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 
 const root = ReactDOM.createRoot(
@@ -17,6 +18,7 @@ root.render( // render the app but don't render analytics if running in GitHub A
     <React.StrictMode>
         <App />
         {!isGitHubAction && <Analytics />}
+        {!isGitHubAction && <SpeedInsights />}
     </React.StrictMode>
 );
 

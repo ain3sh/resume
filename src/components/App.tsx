@@ -124,7 +124,7 @@ const App = () => {
                 generateAllPDFs={generateAllPDFs}
             />
 
-            <div ref={targetRef} id="resume-container">
+            <div ref={targetRef} id="resume-container" className="pt-24 md:pt-20">
                 <ResumeMeasureWrapper
                     theme={currentTheme}
                     onMeasure={handleMeasure}
