@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Sun, Moon, Maximize2, Minimize2, Shrink, Expand, FileDown } from 'lucide-react';
 
 interface ControlsProps {
@@ -14,6 +14,25 @@ interface ControlsProps {
 }
 
 
+const useScrollBehavior = () => {
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50);
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
+
+    return isVisible;
+};
+
+
 const Controls: React.FC<ControlsProps> = ({ 
     isDarkMode,
     isFullResume,
@@ -25,6 +44,8 @@ const Controls: React.FC<ControlsProps> = ({
     isPDFReady,
     generateAllPDFs,
 }) => {
+    const isVisible = useScrollBehavior(); // hide controls on scroll down
+
     useEffect(() => { // keyboard shortcut to generate all PDFs
         const handleKeyPress = (e: KeyboardEvent) => { // Ctrl/Cmd + Shift + P
             if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'P') {
