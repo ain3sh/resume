@@ -145,12 +145,12 @@ const Controls: React.FC<ControlsProps> = ({
                         {/* Download Button */}
                         <div className="flex flex-col items-center">
                             <button
-                                className="relative w-11 h-11 flex items-center justify-center bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-100 rounded-full transition-colors duration-200 ease-in-out"
+                                className="relative w-10 h-10 flex items-center justify-center bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-100 rounded-full transition-colors duration-200 ease-in-out"
                                 onClick={generatePDFHandler}
                                 disabled={!isPDFReady}
                                 aria-label="Download Resume PDF"
                             >
-                                <FileDown size={25} />
+                                <FileDown size={25} className="absolute inset-0 m-auto" />
                             </button>
                             <span className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                                 Download
