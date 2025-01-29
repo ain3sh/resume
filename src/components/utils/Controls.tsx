@@ -138,7 +138,7 @@ const Controls: React.FC<ControlsProps> = ({
                                 </div>
                             </button>
                             <span className="text-sm text-gray-600 dark:text-gray-400 mt-1 min-w-[110px] text-center">
-                                {isCompressed ? 'Compressed' : 'Raw'} PDF
+                                {isCompressed ? 'Compress' : 'Raw'} PDF
                             </span>
                         </div>
 
