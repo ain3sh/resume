@@ -42,12 +42,12 @@ root.render(
 
         {!isGitHubAction &&
             // Vercel Web Analytics Config:
+            //     - Use production mode detection
             //     - Filter out admin routes and testing paths
-            //     - Use production mode detection from Vite
             //     - Debugging enabled only in development
             <Analytics
-                beforeSend={beforeSend}
                 mode={IS_PRODUCTION ? 'production' : 'development'}
+                beforeSend={beforeSend}
                 debug={!IS_PRODUCTION}
             />
         }
@@ -55,7 +55,7 @@ root.render(
         {!isGitHubAction &&
             // Vercel Speed Insights Config:
             //     - Handle route detection for hash navigation
-            //     - Implement sampling in production for scalability
+            //     - Use production mode detection for sampling scalability
             //     - Debugging enabled only in development
             <SpeedInsights
                 route="/" // base route since using hash navigation
