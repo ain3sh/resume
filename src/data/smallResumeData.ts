@@ -98,7 +98,7 @@ export const smallResumeData: ResumeData = {
             role: "Data Science/ML Research Intern",
             department: "Breathing Analysis Project",
             location: "College Park, MD",
-            duration: "Fall 2023 - Present",
+            duration: "October 2023 - December 2024",
             achievements: [
                 {
                 action: "Created",
