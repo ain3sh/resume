@@ -158,24 +158,15 @@ export const smallResumeData: ResumeData = {
 
     skills: [
         {
-        category: "Programming",
-        primary: ["Python", "Java", "C/C++", "Fullstack Development", "DevOps", "API Design"]
+        category: "Programming & Tools/Tech",
+        primary: ["Python", "Java", "C/C++", "Fullstack Development", "DevOps",
+                    "API Design", "Git", "Docker", "CI/CD", "Linux", "PyTorch",
+                                        "Flask", "REST APIs", "NumPy", "Pandas"]
         },
         {
-        category: "ML/AI",
-        primary: ["Un/Supervised Learning", "Deep RL", "GANs"]
-        },
-        {
-        category: "Data Science",
-        primary: ["Statistical Analysis", "Data Structures", "Algorithms", "Data Processing"]
-        },
-        {
-        category: "Finance",
-        primary: ["Black-Scholes", "Stochastic Calculus", "Arbitrage Pricing"]
-        },
-        {
-        category: "Tools & Technologies",
-        primary: ["Git", "Docker", "CI/CD", "Linux", "PyTorch", "Flask", "REST APIs", "NumPy", "Pandas"]
+        category: "ML/AI/Data Science",
+        primary: ["Un/Supervised Learning", "Deep RL", "GANs", "Statistical Analysis",
+                                    "Data Structures", "Algorithms", "Data Processing"]
         },
         {
         category: "Soft Skills",

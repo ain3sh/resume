@@ -2,12 +2,12 @@ import React from 'react';
 import { ResumeData } from '../../types/resume';
 import { ThemeMode, getThemeStyles } from '../utils/themeStyles';
 import {
-  EducationSection,
-  ExperienceSection,
-  ProjectsSection,
-  SkillsSection,
-  PublicationsSection,
-  AdditionalQualificationsSection,
+    EducationSection,
+    ExperienceSection,
+    ProjectsSection,
+    SkillsSection,
+    PublicationsSection,
+    AdditionalQualificationsSection,
 } from './index';
 
 interface ResumeProps {
