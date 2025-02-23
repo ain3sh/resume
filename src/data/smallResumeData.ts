@@ -60,7 +60,7 @@ export const smallResumeData: ResumeData = {
     experience: [
         {
             company: "Johns Hopkins University Applied Physics Laboratory",
-            role: "Computer Science Intern",
+            role: "Computer Science Intern - Interim Security Clearance",
             department: "Force Projection Sector: KMT Group",
             location: "Laurel, MD",
             duration: "May 2024 - Aug 2024",

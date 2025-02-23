@@ -11,7 +11,6 @@ export const resumeData: ResumeData = {
         email: "ainesh.chatterjee@gmail.com",
         phone: "(301) 820-8957",
         location: "Rockville, MD",
-        clearance: "Secret Clearance",
         links: [
             {
                 type: "site",
@@ -63,7 +62,7 @@ export const resumeData: ResumeData = {
     experience: [
         {
             company: "Johns Hopkins University Applied Physics Laboratory",
-            role: "Computer Science Intern",
+            role: "Computer Science Intern - Interim Security Clearance",
             department: "Force Projection Sector: Ocean Systems & Engineering Group",
             location: "Laurel, MD",
             duration: "May 2024 - Aug 2024",
