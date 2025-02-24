@@ -30,11 +30,11 @@ export const smallResumeData: ResumeData = {
         {
             institution: "University of Maryland (College Park)",
             degrees: [
-                "Dual BS in Computer Science (Machine Learning+Quantum Information) and Mathematics"
+                "Dual BS in Computer Science (Machine Learning) and Mathematics"
             ],
             graduation: "December 2025",
             gpa: "3.5",
-            honors: ["University + CS Departmental Honors, Dean's List"],
+            honors: ["University + CS Honors, Dean's List"],
             coursework: [
                 {
                 category: "AI/ML",
@@ -59,7 +59,7 @@ export const smallResumeData: ResumeData = {
     experience: [
         {
             company: "Johns Hopkins University Applied Physics Laboratory",
-            role: "Computer Science Intern - Interim Security Clearance",
+            role: "Computer Science Intern - Interim Clearance",
             department: "Force Projection Sector: KMT Group",
             location: "Laurel, MD",
             duration: "May 2024 - Aug 2024",
