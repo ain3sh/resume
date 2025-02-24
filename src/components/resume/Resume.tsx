@@ -77,7 +77,7 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                     >
                         {personalInfo.email}
                     </a> | {personalInfo.phone}
-                    {personalInfo.location && `| ${personalInfo.location}`} |{' '}
+                    {personalInfo.location && `| ${personalInfo.location}`}
                     {personalInfo.clearance && ` | ${personalInfo.clearance}`} |{' '}
                     {personalInfo.links.map((link, index) => (
                         <React.Fragment key={link.url}>
