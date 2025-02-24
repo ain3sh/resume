@@ -24,6 +24,9 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
         additionalQualifications
     } = data;
 
+    const isMin = personalInfo.links.some(link => link.type.includes(':'));
+
+
     return (
         <div
             className="max-w-5xl mx-auto p-8 shadow-lg"
@@ -90,7 +93,8 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                 </p>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+            <div className={`grid grid-cols-1 md:grid-cols-2
+                            ${isMin ? 'gap-20' : 'gap-14'}`}>
                 <div>
                     <EducationSection
                         education={education}

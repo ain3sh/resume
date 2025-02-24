@@ -13,15 +13,15 @@ export const smallResumeData: ResumeData = {
         location: "Rockville, MD",
         links: [
             {
-                type: "site",
+                type: "site: ainesh.com",
                 url: "https://ain3sh.com/",
             },
             {
-                type: "linkedin",
+                type: "linkedin: ain3sh",
                 url: "https://www.linkedin.com/in/ain3sh/",
             },
             {
-                type: "github",
+                type: "github: GeneralCoder365",
                 url: "https://github.com/GeneralCoder365",
             }
         ]

@@ -75,7 +75,9 @@ export interface PersonalInfo {
     location: string;
     clearance?: string;
     links: {
-        type: 'site' | 'linkedin' | 'github' | 'other';
+        type: 'site' | 'linkedin' | 'github' | 'other' |
+                'site: ainesh.com' | 'linkedin: ain3sh' |
+                                'github: GeneralCoder365';
         url: string;
         label?: string;
     }[];
