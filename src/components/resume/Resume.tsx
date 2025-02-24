@@ -76,8 +76,8 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         className="hover:underline"
                     >
                         {personalInfo.email}
-                    </a> | {personalInfo.phone} |
-                    {personalInfo.location && ` ${personalInfo.location}`} |
+                    </a> | {personalInfo.phone}
+                    {personalInfo.location && `| ${personalInfo.location}`} |{' '}
                     {personalInfo.clearance && ` | ${personalInfo.clearance}`} |{' '}
                     {personalInfo.links.map((link, index) => (
                         <React.Fragment key={link.url}>
