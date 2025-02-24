@@ -12,7 +12,7 @@ export const smallResumeData: ResumeData = {
         phone: "(301) 820-8957",
         links: [
             {
-                type: "site: ainesh.com",
+                type: "site: ain3sh.com",
                 url: "https://ain3sh.com/",
             },
             {
