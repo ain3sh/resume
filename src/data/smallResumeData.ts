@@ -10,10 +10,9 @@ export const smallResumeData: ResumeData = {
         name: "Ainesh Chatterjee",
         email: "ainesh.chatterjee@gmail.com",
         phone: "(301) 820-8957",
-        location: "Rockville, MD",
         links: [
             {
-                type: "site: ainesh.com",
+                type: " ainesh.com",
                 url: "https://ain3sh.com/",
             },
             {
