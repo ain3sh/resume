@@ -31,7 +31,7 @@ export const resumeData: ResumeData = {
         {
             institution: "University of Maryland - College Park",
             degrees: [
-                "Dual BS in Computer Science (Machine Learning&Quantum Information) and Mathematics"
+                "Dual BS in Computer Science (Machine Learning & Quantum Information) and Mathematics"
             ],
             graduation: "December 2025",
             gpa: "3.5",
@@ -250,7 +250,8 @@ export const resumeData: ResumeData = {
                 "PyTorch", "NumPy", "Pandas", "NLTK", "Dask", "Scipy", "Plotly",
                 "Matplotlib", "Spacy", "Scikit-learn", "Seaborn", "TensorBoard",
                 "AWS SageMaker", "BeautifulSoup", "React", "Flask", "RESTful",
-                "Postman", "Selenium", "ROS", "LaTeX", "Powershell", "Memory Profiler"
+                "ROS", "PostgreSQL", "Firebase", "NeonDB", "IBM Qiskit",
+                "Postman", "Selenium", "LaTeX", "Powershell", "Memory Profiler"
             ]
         },
         {
