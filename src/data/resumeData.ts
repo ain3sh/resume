@@ -39,17 +39,20 @@ export const resumeData: ResumeData = {
             coursework: [
                     {
                     category: "AI/ML",
-                    courses: ["Intro to: AI, Data Science, ML; Graduate NLP"]
+                    courses: ["Intro to: AI, ML, Data Science; Graduate NLP"]
                     },
                     {
                     category: "Math",
                     courses: ["Calc III; Advanced Linear Algebra; Differential Equations",
                             "Advanced Calculus; Abstract Algebra",
-                            "Mathematical Finance: Derivatives & Stochastic Models"]
+                            "Mathematical Finance: Derivatives & Stochastic Models",
+                            "Transform Methods"]
                     },
                     {
                     category: "CS",
-                    courses: ["Algorithms; Data Structures; Computer Systems; Object-Oriented Programming; Organization of Languages"]
+                    courses: ["Quantum Computing; Algorithms; Data Structures",
+                            "Computer Systems; Object-Oriented Programming",
+                            "Organization of Languages"]
                     },
                     {
                     category: "Stat",
