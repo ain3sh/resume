@@ -22,7 +22,7 @@ export const resumeData: ResumeData = {
             },
             {
                 type: "github",
-                url: "https://github.com/GeneralCoder365",
+                url: "https://github.com/ain3sh/",
             }
         ]
     },

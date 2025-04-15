@@ -77,7 +77,7 @@ export interface PersonalInfo {
     links: {
         type: 'site' | 'linkedin' | 'github' | 'other' |
                 'site: ain3sh.com' | 'linkedin: ain3sh' |
-                                'github: GeneralCoder365';
+                                'github: ain3sh';
         url: string;
         label?: string;
     }[];

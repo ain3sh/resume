@@ -20,8 +20,8 @@ export const smallResumeData: ResumeData = {
                 url: "https://www.linkedin.com/in/ain3sh/",
             },
             {
-                type: "github: GeneralCoder365",
-                url: "https://github.com/GeneralCoder365",
+                type: "github: ain3sh",
+                url: "https://github.com/ain3sh/",
             }
         ]
     },
