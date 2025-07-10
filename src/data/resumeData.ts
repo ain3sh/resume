@@ -34,7 +34,7 @@ export const resumeData: ResumeData = {
                 "Dual BS in Computer Science (Machine Learning & Quantum Information) and Mathematics"
             ],
             graduation: "December 2025",
-            gpa: "3.5",
+            gpa: "3.384",
             honors: ["University, CS Departmental Honors; BS/MS; Dean's List"],
             coursework: [
                     {
