@@ -31,7 +31,7 @@ export const resumeData: ResumeData = {
         {
             institution: "University of Maryland - College Park",
             degrees: [
-                "Dual BS in Computer Science (Machine Learning & Quantum Information) and Mathematics"
+                "Dual BS in Computer Science (Machine Learning) and Mathematics"
             ],
             graduation: "December 2025",
             gpa: "3.384",
