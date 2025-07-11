@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-01-23"
+        lastUpdated: "2025-07-11"
     },
 
     personalInfo: {
@@ -39,7 +39,7 @@ export const resumeData: ResumeData = {
             coursework: [
                     {
                     category: "AI/ML",
-                    courses: ["Intro to: AI, ML, Data Science; Graduate NLP"]
+                    courses: ["Intro to: AI, ML, Data Science; Computer Vision; Graduate NLP"]
                     },
                     {
                     category: "Math",
@@ -174,7 +174,8 @@ export const resumeData: ResumeData = {
             description: [
                 "AI-powered platform for personalized newsletters",
                 "(Full Pipeline: Content Aggregation → Monetization)",
-                "Test-Time MoE agentic architecture for improved context retrieval via specialized document-expert LLM models"
+                "Test-Time MoE agentic architecture for improved context retrieval via specialized document-expert LLM models",
+                "MVP built for Bitcamp 2025 Hackathon",
             ],
             achievements: []
         },
@@ -185,7 +186,8 @@ export const resumeData: ResumeData = {
             description: [
                 "Open-Source Python/Rust Quantum-Safe password manager with lattice-based cryptography",
                 "Secure Docker container core manager",
-                "End-to-end encrypted CLI-container comm protocol"
+                "End-to-end encrypted CLI-container comm protocol",
+                "MVP built for Bitcamp 2023 Hackathon",
             ],
             achievements: []
         },
@@ -228,12 +230,12 @@ export const resumeData: ResumeData = {
     skills: [
         {
             category: "Programming",
-            primary: ["Python", "C/C++", "DevOps", "Webhosting", "Fullstack Development", "API-creation", "Design Paradigms"],
+            primary: ["Python", "C/C++", "DevOps", "Webhosting", "Fullstack Development", "APIs", "Design Paradigms"],
             secondary: ["Java", "Rust", "Lua", "MATLAB", "Flutter/Dart", "HTML5", "CSS3", "JavaScript", "Assembly"]
         },
         {
             category: "ML/AI",
-            primary: ["Un/Supervised Learning", "Deep RL", "GANs"]
+            primary: ["Un/Supervised Learning", "Deep RL", "Agentic LLMs", "GraphRAG", "MCP", "Context Engineering", "GANs"]
         },
         {
             category: "Data Science",
@@ -247,6 +249,8 @@ export const resumeData: ResumeData = {
             category: "Tools & Technologies",
             primary: [
                 "Git", "GitHub/Lab", "Docker", "SQL", "Linux", "Bash", "WSL2",
+                "Google Agent ADK", "Pocketflow", "OpenAI API", "LangChain",
+                "Neo4j", "Agent2Agent", "LiteLLM", "FastAPI", "HuggingFace",
                 "PyTorch", "NumPy", "Pandas", "NLTK", "Dask", "Scipy", "Plotly",
                 "Matplotlib", "Spacy", "Scikit-learn", "Seaborn", "TensorBoard",
                 "AWS SageMaker", "BeautifulSoup", "React", "Flask", "RESTful",
