@@ -36,10 +36,11 @@ jobs:
 
       - name: Clear PDFs Directory
         run: |
-          echo "🔄 Clearing existing PDFs..."
-          rm -rf pdfs/
+          echo "🔄 Clearing existing PDFs except transcript.pdf..."
           mkdir -p pdfs/
-          echo "✅ PDFs directory reset."
+          find pdfs/ -type f ! -name 'transcript.pdf' -delete
+          find pdfs/ -type d -empty -delete
+          echo "✅ PDFs directory cleaned."
 
       - name: Generate PDFs
         id: generate_pdfs
