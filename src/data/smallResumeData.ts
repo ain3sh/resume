@@ -38,7 +38,7 @@ export const smallResumeData: ResumeData = {
             coursework: [
                 {
                 category: "AI/ML",
-                courses: ["Intro to: AI, Data Science, ML, Graduate NLP"]
+                courses: ["Intro to: AI, DS, ML; Computer Vision; Graduate NLP"]
                 },
                 {
                 category: "Math",
@@ -164,8 +164,9 @@ export const smallResumeData: ResumeData = {
         },
         {
         category: "ML/AI/Data Science",
-        primary: ["Un/Supervised Learning", "Deep RL", "GANs", "Statistical Analysis",
-                                    "Data Structures", "Algorithms", "Data Processing"]
+        primary: ["Un/Supervised RL", "Deep RL", "GANs",
+                    "Agentic LLMs", "GraphRAG", "MCP", "Context Engineering",
+                                                "Data Structures", "Big Data"]
         },
         {
         category: "Soft Skills",
