@@ -170,7 +170,7 @@ export const resumeData: ResumeData = {
         {
             name: "Vizier",
             role: "Team Lead/ML Developer",
-            isActive: true,
+            isActive: false,
             description: [
                 "AI-powered platform for personalized newsletters",
                 "(Full Pipeline: Content Aggregation → Monetization)",
@@ -182,7 +182,7 @@ export const resumeData: ResumeData = {
         {
             name: "QSafe",
             role: "Solo Developer",
-            isActive: true,
+            isActive: false,
             description: [
                 "Open-Source Python/Rust Quantum-Safe password manager with lattice-based cryptography",
                 "Secure Docker container core manager",
@@ -249,8 +249,8 @@ export const resumeData: ResumeData = {
             category: "Tools & Technologies",
             primary: [
                 "Git", "GitHub/Lab", "Docker", "SQL", "Linux", "Bash", "WSL2",
-                "Google Agent ADK", "Pocketflow", "OpenAI API", "LangChain",
-                "Neo4j", "Agent2Agent", "LiteLLM", "FastAPI", "HuggingFace",
+                "Google Agent ADK", "Pocketflow", "OpenAI API", "Neo4j",
+                "Agent2Agent", "LiteLLM", "FastAPI", "HuggingFace",
                 "PyTorch", "NumPy", "Pandas", "NLTK", "Dask", "Scipy", "Plotly",
                 "Matplotlib", "Spacy", "Scikit-learn", "Seaborn", "TensorBoard",
                 "AWS SageMaker", "BeautifulSoup", "React", "Flask", "RESTful",
