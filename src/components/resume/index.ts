@@ -1,4 +1,3 @@
-export { default as AdditionalQualificationsSection } from './AdditionalQualifications';
 export { default as EducationSection } from './Education';
 export { default as ExperienceSection } from './Experience';
 export { default as ProjectsSection } from './Projects';
