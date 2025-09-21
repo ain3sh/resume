@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-09-20"
+        lastUpdated: "2025-09-21"
     },
 
     personalInfo: {
