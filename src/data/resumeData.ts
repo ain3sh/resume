@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-07-11"
+        lastUpdated: "2025-09-20"
     },
 
     personalInfo: {
@@ -14,15 +14,15 @@ export const resumeData: ResumeData = {
         links: [
             {
                 type: "site",
-                url: "https://ain3sh.com/",
+                url: "https://ain3sh.com/"
             },
             {
                 type: "linkedin",
-                url: "https://www.linkedin.com/in/ain3sh/",
+                url: "https://www.linkedin.com/in/ain3sh/"
             },
             {
                 type: "github",
-                url: "https://github.com/ain3sh/",
+                url: "https://github.com/ain3sh/"
             }
         ]
     },
@@ -37,32 +37,78 @@ export const resumeData: ResumeData = {
             gpa: "3.384",
             honors: ["University, CS Departmental Honors; BS/MS; Dean's List"],
             coursework: [
-                    {
+                {
                     category: "AI/ML",
-                    courses: ["Intro to: AI, ML, Data Science; Computer Vision; Graduate NLP"]
-                    },
-                    {
+                    courses: [
+                        "Graduate NLP; HRI/Embodied AI; Computer Vision;",
+                        "Intro to: Multimodal DL, AI, ML, Data Science"
+                    ]
+                },
+                {
                     category: "Math",
-                    courses: ["Calc III; Advanced Linear Algebra; Differential Equations",
-                            "Advanced Calculus; Abstract Algebra",
-                            "Mathematical Finance: Derivatives & Stochastic Models",
-                            "Transform Methods"]
-                    },
-                    {
+                    courses: [
+                        "Calc III; Advanced Linear Algebra; Differential Equations;",
+                        "Advanced Calculus; Abstract Algebra;",
+                        "Mathematical Finance: Derivatives & Stochastic Models;",
+                        "Transform Methods; Numerical Analysis"
+                    ]
+                },
+                {
                     category: "CS",
-                    courses: ["Quantum Computing; Algorithms; Data Structures",
-                            "Computer Systems; Object-Oriented Programming",
-                            "Organization of Languages"]
-                    },
-                    {
+                    courses: [
+                        "Quantum Computing; Algorithms; Data Structures",
+                        "Computer Systems; Object-Oriented Programming",
+                        "Organization of Languages"
+                    ]
+                },
+                {
                     category: "Stat",
                     courses: ["Applied Prob&Stat; Probability Theory"]
-                    }
-                ]
-        },
+                }
+            ]
+        }
     ],
 
     experience: [
+        {
+            company: "Tilli Software",
+            role: "AI Engineering Intern",
+            department: "Edge:XDEX:Agent",
+            location: "Remote",
+            duration: "July 2025 - Present",
+            achievements: [
+                {
+                    action: "Built",
+                    description: "an end-to-end MVP of Tilli Agent using Pocketflow and the Google Agent ADK to act in utility customer web portals",
+                    metrics: ""
+                },
+                {
+                    action: "Designed",
+                    description: "the Scrape2MCP paradigm to scrape arbitrary sites and extract structured info for API/browser actions, generating template-derived MCP servers with the Claude Code SDK",
+                    metrics: ""
+                },
+                {
+                    action: "Architected",
+                    description: "the Tilli MCP Super-Server as a shared tool 'store' for user agents",
+                    metrics: ""
+                },
+                {
+                    action: "Optimized",
+                    description: "agent deployment to maximize token cache hits on AWS Bedrock Agentcore, reducing latency and cost",
+                    metrics: "increased cache-hit rate; lowered p50 latency and token cost"
+                },
+                {
+                    action: "Devised",
+                    description: "automated agent performance logging for asynchronous analysis",
+                    metrics: ""
+                },
+                {
+                    action: "Leading",
+                    description: "launch of Tilli Agent",
+                    metrics: "initially serving 150k+ users; planned rollout to ~3M across Tilli Software’s client base"
+                }
+            ]
+        },
         {
             company: "Johns Hopkins University Applied Physics Laboratory",
             role: "Computer Science Intern - Interim Security Clearance",
@@ -71,37 +117,38 @@ export const resumeData: ResumeData = {
             duration: "May 2024 - Aug 2024",
             achievements: [
                 {
-                action: "Implemented",
-                description: "iteratively enhanced Generative Adversarial Imitation from Observation (GAIfO) agents",
-                metrics: "substantially outperforming baseline imitation models"
+                    action: "Implemented",
+                    description: "iteratively enhanced Generative Adversarial Imitation from Observation (GAIfO) agents, substantially outperforming baseline imitation models",
+                    metrics: ""
                 },
                 {
-                action: "Authored",
-                description: "critical literature reviews on GAIfO and Generative AI, providing",
-                metrics: "direct insights for future project strategies"
+                    action: "Developed",
+                    description: "an optimized GAIfO variant leveraging architectural insights that outperformed prior versions over long horizons",
+                    metrics: ""
                 },
                 {
-                action: "Developed",
-                description: "an optimized GAIfO variant, using core-architectural insights from a literature review, which outperformed all prior versions over long timeframes"
+                    action: "Enhanced",
+                    description: "GTRI's SCRIMMAGE mass-simulation framework with increased scenario complexity and expert controller functionality",
+                    metrics: ""
                 },
                 {
-                action: "Enhanced",
-                description: "GTRI's SCRIMMAGE mass-simulation framework with increased complexity and expert controller functionality"
+                    action: "Revamped",
+                    description: "GitLab CI pipelines, boosting speed and efficiency",
+                    metrics: "25% while addressing security vulnerabilities"
                 },
                 {
-                action: "Revamped",
-                description: "GitLab Continuous Integration pipelines, boosting speed and efficiency by",
-                metrics: "25% while addressing security vulnerabilities"
+                    action: "Optimized",
+                    description: "project-wide Docker image used across repositories, reducing pipeline build times and memory footprint",
+                    metrics: "50% faster builds; 40% better memory efficiency"
                 },
                 {
-                action: "Optimized",
-                description: "project-wide Docker Image, used across all repositories, reducing pipeline build times by",
-                metrics: "50% and increasing memory efficiency by 40%"
+                    action: "Led",
+                    description: "winning team for sector Intern Challenge delivering a secure, non-GPS intra-campus navigation prototype",
+                    metrics: ""
                 },
-                {
-                action: "Led",
-                description: "winning team for sector Intern Challenge in developing a secure, non-GPS intra-campus navigation prototype"
-                }
+                {action: "Authored",
+                description: "literature reviews on SoTA Transformer-based models, unlocking",
+                metrics: "direct insights for future project strategies"},
             ]
         },
         {
@@ -112,21 +159,19 @@ export const resumeData: ResumeData = {
             duration: "October 2023 - December 2024",
             achievements: [
                 {
-                action: "Developed",
-                description: "an advanced visualization dashboard for efficient analysis of mass breath data"
+                    action: "Developed",
+                    description: "a visualization dashboard and dataset structures for large-scale breath-data analysis and downstream feature extraction",
+                    metrics: ""
                 },
                 {
-                action: "Designed",
-                description: "dataset structures for visualization and feature extraction in future work"
+                    action: "Optimized",
+                    description: "dataset loading with Dask and multithreading",
+                    metrics: "400%+ faster throughput"
                 },
                 {
-                action: "Optimized",
-                description: "massive dataset-loading using Dask and multithreading by over",
-                metrics: "400%"
-                },
-                {
-                action: "Implemented",
-                description: "and evaluated supervised learning techniques for improved breath segmentation"
+                    action: "Implemented",
+                    description: "supervised learning approaches for improved breath segmentation",
+                    metrics: ""
                 }
             ]
         },
@@ -135,16 +180,18 @@ export const resumeData: ResumeData = {
             role: "Student Researcher",
             department: "Crowd Simulation",
             location: "College Park, MD",
-            duration: "September 2024 - Present",
+            duration: "September 2024 - June 2025",
             achievements: [
-                    {
-                    action: "Exploring",
-                    description: "application of non-Euclidean geometries"
-                    },
-                    {
-                    action: "Applying",
-                    description: "Transformers to crowd navigation, with focus on natural language goal-direction"
-                    }
+                {
+                    action: "Explored",
+                    description: "applications of non-Euclidean geometries to crowd navigation and interaction",
+                    metrics: ""
+                },
+                {
+                    action: "Applied",
+                    description: "transformer-based models to language-directed crowd navigation",
+                    metrics: ""
+                }
             ]
         },
         {
@@ -155,12 +202,9 @@ export const resumeData: ResumeData = {
             duration: "Spring 2024",
             achievements: [
                 {
-                action: "Co-designed and graded",
-                description: "homeworks, exams, and lecture material for 38 honours students"
-                },
-                {
-                action: "Conducted",
-                description: "weekly office hours, providing personalized guidance on advanced topics"
+                    action: "Co-designed and graded",
+                    description: "homeworks, exams, and lecture material for 38 honors students; held weekly office hours for advanced topic support",
+                    metrics: ""
                 }
             ]
         }
@@ -172,10 +216,8 @@ export const resumeData: ResumeData = {
             role: "Team Lead/ML Developer",
             isActive: false,
             description: [
-                "AI-powered platform for personalized newsletters",
-                "(Full Pipeline: Content Aggregation → Monetization)",
-                "Test-Time MoE agentic architecture for improved context retrieval via specialized document-expert LLM models",
-                "MVP built for Bitcamp 2025 Hackathon",
+                "AI-powered personalized newsletter platform; MVP built for Bitcamp 2025",
+                "Test-time MoE agentic architecture improving context retrieval via document-expert LLMs"
             ],
             achievements: []
         },
@@ -184,10 +226,8 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: false,
             description: [
-                "Open-Source Python/Rust Quantum-Safe password manager with lattice-based cryptography",
-                "Secure Docker container core manager",
-                "End-to-end encrypted CLI-container comm protocol",
-                "MVP built for Bitcamp 2023 Hackathon",
+                "Open-source Python/Rust quantum-safe password manager using lattice-based cryptography",
+                "Secure Docker manager and end-to-end encrypted CLI–container protocol; MVP for Bitcamp 2023"
             ],
             achievements: []
         },
@@ -196,17 +236,16 @@ export const resumeData: ResumeData = {
             role: "Team Lead/Backend Developer",
             isActive: false,
             description: [
-                "Python/Flutter app for global COVID-19 risk assessment",
-                "Analyzed real-time foot traffic and urban density using a time-weighted algorithm for predictive accuracy"
+                "Python/Flutter app for global COVID-19 risk assessment using time-weighted foot traffic and urban density analytics"
             ],
             achievements: [
                 {
-                type: "award",
-                description: "Congressional App Challenge Winner: 2021 District MD08"
+                    type: "award",
+                    description: "Congressional App Challenge Winner: 2021 District MD08"
                 },
                 {
-                type: "recognition",
-                description: "Guest Speaker at 2022 US Patent and Trademark Office APPLY Yourself event"
+                    type: "recognition",
+                    description: "Guest Speaker at 2022 US Patent and Trademark Office APPLY Yourself event"
                 }
             ]
         },
@@ -215,13 +254,12 @@ export const resumeData: ResumeData = {
             role: "Team Lead/Backend Developer",
             isActive: false,
             description: [
-                "Python/Flutter app that connected underrepresented students to resources using NLP-driven searches",
-                "Implemented advanced NLP techniques (e.g. NLTK, Spacy, and Cosine/Wu-Palmer similarities)"
+                "NLP-driven matching tool connecting underrepresented students to resources (NLTK, spaCy, semantic similarity)"
             ],
             achievements: [
                 {
-                type: "award",
-                description: "Best Education Award: 2022 Blairhacks_5 Hackathon"
+                    type: "award",
+                    description: "Best Education Award: 2022 Blairhacks_5 Hackathon"
                 }
             ]
         }
@@ -230,37 +268,118 @@ export const resumeData: ResumeData = {
     skills: [
         {
             category: "Programming",
-            primary: ["Python", "C/C++", "DevOps", "Webhosting", "Fullstack Development", "APIs", "Design Paradigms"],
-            secondary: ["Java", "Rust", "Lua", "MATLAB", "Flutter/Dart", "HTML5", "CSS3", "JavaScript", "Assembly"]
+            primary: [
+                "Python",
+                "C/C++",
+                "Fullstack Development",
+                "APIs",
+                "DevOps",
+                "Webhosting",
+                "Design Paradigms"
+            ],
+            secondary: [
+                "Java",
+                "Rust",
+                "Lua",
+                "MATLAB",
+                "Flutter/Dart",
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "Assembly"
+            ]
         },
         {
             category: "ML/AI",
-            primary: ["Un/Supervised Learning", "Deep RL", "Agentic LLMs", "GraphRAG", "MCP", "Context Engineering", "GANs"]
+            primary: [
+                "Transformers",
+                "Agentic LLMs",
+                "MCP",
+                "Context Engineering",
+                "GraphRAG",
+                "Deep RL",
+                "Supervised/Unsupervised Learning",
+                "Genetic Algorithms",
+                "GANs"
+            ]
         },
         {
             category: "Data Science",
-            primary: ["Statistical Analysis", "Data Processing"]
+            primary: [
+                "Statistical Analysis",
+                "Data Processing"
+            ]
         },
         {
             category: "Finance",
-            primary: ["Brownian Motion", "Black-Scholes", "Arbitrage Pricing", "Stochastic Calculus", "Delta Hedging"]
+            primary: [
+                "Brownian Motion",
+                "Black-Scholes",
+                "Arbitrage Pricing",
+                "Stochastic Calculus",
+                "Delta Hedging"
+            ]
         },
         {
             category: "Tools & Technologies",
             primary: [
-                "Git", "GitHub/Lab", "Docker", "SQL", "Linux", "Bash", "WSL2",
-                "Google Agent ADK", "Pocketflow", "OpenAI API", "Neo4j",
-                "Agent2Agent", "LiteLLM", "FastAPI", "HuggingFace",
-                "PyTorch", "NumPy", "Pandas", "NLTK", "Dask", "Scipy", "Plotly",
-                "Matplotlib", "Spacy", "Scikit-learn", "Seaborn", "TensorBoard",
-                "AWS SageMaker", "BeautifulSoup", "React", "Flask", "RESTful",
-                "ROS", "PostgreSQL", "Firebase", "NeonDB", "IBM Qiskit",
-                "Postman", "Selenium", "LaTeX", "Powershell", "Memory Profiler"
+                "Git",
+                "GitHub/Lab",
+                "Docker",
+                "Linux",
+                "Bash",
+                "WSL2",
+                "Python",
+                "FastAPI",
+                "React",
+                "Flask",
+                "RESTful",
+                "PostgreSQL",
+                "NeonDB",
+                "Neo4j",
+                "LiteLLM",
+                "Claude Code SDK",
+                "MCP",
+                "Google Agent ADK",
+                "Google Agent2Agent (A2A)",
+                "Pocketflow",
+                "OpenAI API",
+                "HuggingFace",
+                "PyTorch",
+                "NumPy",
+                "Pandas",
+                "Dask",
+                "NLTK",
+                "SciPy",
+                "spaCy",
+                "scikit-learn",
+                "Seaborn",
+                "Matplotlib",
+                "TensorBoard",
+                "Selenium",
+                "BeautifulSoup",
+                "LaTeX",
+                "PowerShell",
+                "Memory Profiler",
+                "ROS",
+                "IBM Qiskit",
+                "AWS EC2",
+                "AWS Fargate",
+                "AWS Lambda",
+                "AWS S3",
+                "AWS Bedrock",
+                "AWS SageMaker"
             ]
         },
         {
             category: "Soft Skills",
-            primary: ["First-Principles Problem Solving", "Leadership", "Technical Writing", "Self-teaching", "Iterative Experimentation"]
+            primary: [
+                "First-Principles Problem Solving",
+                "Leadership",
+                "Technical Writing",
+                "Self-teaching",
+                "Iterative Experimentation"
+            ]
         }
     ],
 
@@ -276,7 +395,7 @@ export const resumeData: ResumeData = {
             url: "https://arxiv.org/abs/2412.18690",
             venue: "arXiv",
             year: "2024"
-        },
+        }
     ],
 
     additionalQualifications: [
@@ -284,16 +403,16 @@ export const resumeData: ResumeData = {
             category: "Certifications",
             items: [
                 {
-                name: "Complete Linear Algebra",
-                issuer: "Udemy"
+                    name: "Complete Linear Algebra",
+                    issuer: "Udemy"
                 },
                 {
-                name: "Algorithmic Toolbox",
-                issuer: "UCSD"
+                    name: "Algorithmic Toolbox",
+                    issuer: "UCSD"
                 },
                 {
-                name: "Game Theory",
-                issuer: "Stanford"
+                    name: "Game Theory",
+                    issuer: "Stanford"
                 }
             ]
         },
@@ -317,7 +436,7 @@ export const resumeData: ResumeData = {
                 { name: "French", level: "Beginner" }
             ]
         }
-    ],
+    ]
 };
 
 export default resumeData;

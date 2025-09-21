@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const smallResumeData: ResumeData = {
     metadata: {
         version: "condensed",
-        lastUpdated: "2025-01-23"
+        lastUpdated: "2025-09-20"
     },
 
     personalInfo: {
@@ -11,85 +11,76 @@ export const smallResumeData: ResumeData = {
         email: "ainesh.chatterjee@gmail.com",
         phone: "(301) 820-8957",
         links: [
-            {
-                type: "site: ain3sh.com",
-                url: "https://ain3sh.com/",
-            },
-            {
-                type: "linkedin: ain3sh",
-                url: "https://www.linkedin.com/in/ain3sh/",
-            },
-            {
-                type: "github: ain3sh",
-                url: "https://github.com/ain3sh/",
-            }
+            { type: "site: ain3sh.com", url: "https://ain3sh.com/" },
+            { type: "linkedin: ain3sh", url: "https://www.linkedin.com/in/ain3sh/" },
+            { type: "github: ain3sh", url: "https://github.com/ain3sh/" }
         ]
     },
 
     education: [
         {
             institution: "University of Maryland (College Park)",
-            degrees: [
-                "Dual BS in Computer Science (Machine Learning) and Mathematics"
-            ],
+            degrees: ["Dual BS in Computer Science (Machine Learning) and Mathematics"],
             graduation: "December 2025",
             gpa: "3.384",
             honors: ["University + CS Honors, Dean's List"],
             coursework: [
                 {
-                category: "AI/ML",
-                courses: ["Intro to: AI, DS, ML; Computer Vision; Graduate NLP"]
+                    category: "AI/ML",
+                    courses: ["Graduate NLP; Computer Vision; HRI/Embodied AI; Intro to: Multimodal DL, AI, ML, Data Science"]
                 },
                 {
-                category: "Math",
-                courses: ["Calculus III, Advanced Linear Algebra, Differential Equations, Abstract Algebra, Financial Modeling"]
+                    category: "Math",
+                    courses: ["Calculus III; Advanced Linear Algebra; Differential Equations; Abstract Algebra; Transform Methods; Numerical Analysis; Financial Models"]
                 },
                 {
-                category: "CS",
-                courses: ["Algorithms, Data Structures, Computer Systems, OOP, Programming Languages"]
+                    category: "CS",
+                    courses: ["Algorithms; Data Structures; Computer Systems; OOP; Programming Languages; Quantum Computing"]
                 },
-                {
-                category: "Stat",
-                courses: ["Applied Prob&Stat, Probability Theory"]
-                }
+                { category: "Stat", courses: ["Applied Prob&Stat; Probability Theory"] }
             ]
         }
     ],
 
     experience: [
         {
+            company: "Tilli Software",
+            role: "AI Engineering Intern",
+            department: "Edge:XDEX:Agent",
+            location: "Remote",
+            duration: "July 2025 - Present",
+            achievements: [
+                {
+                    action: "Built",
+                    description: "end-to-end MVP of Tilli Agent using Pocketflow + Google Agent ADK for utility customer web portals"
+                },
+                {
+                    action: "Designed",
+                    description: "Scrape2MCP for structured extraction from arbitrary sites; generated template-derived MCP servers (Claude Code SDK)"
+                },
+                {
+                    action: "Optimized",
+                    description: "deployment on AWS Bedrock Agentcore",
+                    metrics: "higher token-cache hit rate; reduced p50 latency and token cost"
+                },
+                {
+                    action: "Leading",
+                    description: "product launch",
+                    metrics: "serving 150k+ users with planned rollout to ~3M"
+                }
+            ]
+        },
+        {
             company: "Johns Hopkins University Applied Physics Laboratory",
             role: "Computer Science Intern - Interim Clearance",
-            department: "Force Projection Sector: KMT Group",
+            department: "Force Projection Sector: Ocean Systems & Engineering Group",
             location: "Laurel, MD",
             duration: "May 2024 - Aug 2024",
             achievements: [
-                {
-                action: "Developed",
-                description: "Generative Adversarial Imitation from Observation (GAIfO) agents, outperforming baseline models"
-                },
-                {
-                action: "Authored",
-                description: "literature reviews on GAIfO and Generative AI, shaping project strategies"
-                },
-                {
-                action: "Enhanced",
-                description: "SCRIMMAGE simulation framework with advanced controller functionalities"
-                },
-                {
-                action: "Revamped",
-                description: "GitLab CI pipelines, boosting efficiency by",
-                metrics: "25% and improving security"
-                },
-                {
-                action: "Optimized",
-                description: "core Docker Image, reducing build times by",
-                metrics: "50% and increasing memory efficiency by 40%"
-                },
-                {
-                action: "Led",
-                description: "winning team for the sector-wide Intern Challenge, in developing a prototype secure, non-GPS intra-campus navigation system"
-                }
+                { action: "Developed", description: "enhanced GAIfO agents outperforming baselines over long horizons" },
+                { action: "Revamped", description: "GitLab CI pipelines", metrics: "≈25% faster and more secure" },
+                { action: "Optimized", description: "shared Docker image across repos", metrics: "≈50% faster builds; ≈40% lower memory" },
+                { action: "Enhanced", description: "SCRIMMAGE simulation with added complexity and expert controllers" }
             ]
         },
         {
@@ -99,57 +90,30 @@ export const smallResumeData: ResumeData = {
             location: "College Park, MD",
             duration: "October 2023 - December 2024",
             achievements: [
-                {
-                action: "Created",
-                description: "a visualization dashboard for mass breath data analysis, and optimized dataset loading by over",
-                metrics: "400%"
-                },
-                {
-                action: "Implemented",
-                description: "supervised learning techniques to enhance breath segmentation accuracy"
-                }
-            ]
-        },
-        {
-            company: "University of Maryland CMNS",
-            role: "Lead Teaching Assistant",
-            department: "CMSC351H (Algorithms Honors)",
-            location: "College Park, MD",
-            duration: "Spring 2024",
-            achievements: [
-                {
-                action: "Co-designed and graded",
-                description: "homeworks, exams, and lecture material for 38 honours students"
-                },
-                {
-                action: "Conducted",
-                description: "weekly office hours, providing personalized guidance on advanced topics"
-                }
+                { action: "Created", description: "visualization dashboard + data structures for large-scale breath analysis" },
+                { action: "Optimized", description: "dataset loading with Dask + multithreading", metrics: "400%+ throughput improvement" },
+                { action: "Implemented", description: "supervised methods for improved breath segmentation" }
             ]
         }
     ],
 
     projects: [
         {
-            name: "CoronaSafe",
-            role: "Team Lead/Developer",
+            name: "Vizier",
+            role: "Team Lead/ML Developer",
             isActive: false,
             description: [
-                "Python/Flutter app for global COVID-19 risk assessment",
-                "Won the 2021 Congressional App Challenge for district MD08",
-                "Analyzed real-time foot traffic and urban density using a novel time-weighted algorithm for predictive accuracy",
-                "Featured as a guest speaker at the US Patent and Trademark Office's 2022 APPLY Yourself event"
+                "AI newsletter MVP (Bitcamp 2025) using test-time MoE + document-expert LLMs for improved retrieval"
             ],
             achievements: []
         },
         {
-            name: "Resourceful",
+            name: "CoronaSafe",
             role: "Team Lead/Developer",
             isActive: false,
             description: [
-                "Python/Flutter app that connected underrepresented students to resources using NLP-driven searches",
-                "Won the Best Education Award at the 2022 Blairhacks_5 Hackathon",
-                "Implemented advanced NLP techniques including NLTK, Spacy, and Cosine/Wu-Palmer similarities"
+                "Python/Flutter risk assessment using time-weighted foot-traffic + density analytics",
+                "Congressional App Challenge Winner (2021 MD-08); Guest Speaker, USPTO APPLY Yourself (2022)"
             ],
             achievements: []
         }
@@ -157,77 +121,34 @@ export const smallResumeData: ResumeData = {
 
     skills: [
         {
-        category: "Programming & Tools/Tech",
-        primary: ["Python", "Java", "C/C++", "Fullstack Development", "DevOps",
-                    "API Design", "Git", "Docker", "CI/CD", "Linux", "PyTorch",
-                                        "Flask", "REST APIs", "NumPy", "Pandas"]
+            category: "Languages & Platforms",
+            primary: ["Python", "C/C++", "Java", "Linux", "Docker", "Git", "CI/CD", "FastAPI", "React", "Flask", "PostgreSQL"]
         },
         {
-        category: "ML/AI/Data Science",
-        primary: ["Un/Supervised RL", "Deep RL", "GANs",
-                    "Agentic LLMs", "GraphRAG", "MCP", "Context Engineering",
-                                                "Data Structures", "Big Data"]
+            category: "AI/Agents",
+            primary: ["Transformers", "Agentic LLMs", "MCP", "Claude Code SDK", "Context Engineering", "GraphRAG", "PyTorch", "LiteLLM"]
         },
         {
-        category: "Soft Skills",
-        primary: ["Research", "Technical Writing", "Problem-Solving", "Team Leadership"]
+            category: "Cloud & Data",
+            primary: ["AWS (EC2, Fargate, Lambda, S3, Bedrock, SageMaker)", "Neo4j", "Pandas", "NumPy", "Dask", "Selenium", "BeautifulSoup"]
         }
     ],
 
     publications: [
-        {
-            title: "Ipelets for the Convex Polygonal Geometry",
-            url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92",
-            venue: "SoCG 2024",
-            year: "2024"
-        },
-        {
-            title: "AgreeMate: Teaching LLMs to Haggle",
-            url: "https://arxiv.org/abs/2412.18690",
-            venue: "arXiv",
-            year: "2024"
-        },
+        { title: "Ipelets for the Convex Polygonal Geometry", url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92", venue: "SoCG 2024", year: "2024" },
+        { title: "AgreeMate: Teaching LLMs to Haggle", url: "https://arxiv.org/abs/2412.18690", venue: "arXiv", year: "2024" }
     ],
 
     additionalQualifications: [
         {
-            category: "Certifications",
-            items: [
-                {
-                name: "Complete Linear Algebra",
-                issuer: "Udemy"
-                },
-                {
-                name: "Algorithmic Toolbox",
-                issuer: "UCSD"
-                },
-                {
-                name: "Game Theory",
-                issuer: "Stanford"
-                }
-            ]
-        },
-        {
             category: "Awards",
             items: [
-                { name: "National Merit Scholarship" },
-                { name: "Dean's Scholarship" },
-                { name: "Eagle Scout" },
                 { name: "Congressional App Challenge Winner" },
-                { name: "ISKF Black Belt" }
-            ]
-        },
-        {
-            category: "Languages",
-            items: [
-                { name: "English", level: "Native" },
-                { name: "Bengali", level: "Native" },
-                { name: "Hindi", level: "Intermediate" },
-                { name: "Spanish", level: "Intermediate" },
-                { name: "French", level: "Beginner" }
+                { name: "Dean's Scholarship" },
+                { name: "Eagle Scout" }
             ]
         }
-    ],
+    ]
 };
 
 export default smallResumeData;
