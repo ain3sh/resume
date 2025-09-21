@@ -101,10 +101,6 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         education={education}
                         theme={theme}
                     />
-                    <PublicationsSection
-                        publications={publications}
-                        theme={theme}
-                    />
                     <ProjectsSection
                         projects={projects}
                         theme={theme}
@@ -121,6 +117,10 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                 <div>
                     <ExperienceSection
                         experience={experience}
+                        theme={theme}
+                    />
+                    <PublicationsSection
+                        publications={publications}
                         theme={theme}
                     />
                 </div>
