@@ -101,10 +101,12 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         education={education}
                         theme={theme}
                     />
-                    <PublicationsSection
-                        publications={publications}
-                        theme={theme}
-                    />
+                    {isMin && (
+                        <PublicationsSection
+                            publications={publications}
+                            theme={theme}
+                        />
+                    )}
                     <ProjectsSection
                         projects={projects}
                         theme={theme}
@@ -125,6 +127,12 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         experience={experience}
                         theme={theme}
                     />
+                    {!isMin && (
+                        <PublicationsSection
+                            publications={publications}
+                            theme={theme}
+                        />
+                    )}
                     {isMin && (
                         <AdditionalQualificationsSection
                             qualifications={additionalQualifications}
