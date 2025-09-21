@@ -94,8 +94,8 @@ export const resumeData: ResumeData = {
                 },
                 {
                     action: "Optimized",
-                    description: "agent deployment to maximize token cache hits on AWS Bedrock Agentcore, reducing latency and cost",
-                    metrics: "increased cache-hit rate; lowered p50 latency and token cost"
+                    description: "agent deployment stack on AWS Bedrock Agentcore,",
+                    metrics: "increasing cache-hit rate; lowering p50 latency and token cost"
                 },
                 {
                     action: "Devised",
