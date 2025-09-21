@@ -126,7 +126,7 @@ export const smallResumeData: ResumeData = {
         },
         {
             category: "AI/Agents",
-            primary: ["Transformers", "Agentic LLMs", "MCP", "Claude Code SDK", "Context Engineering", "GraphRAG", "PyTorch", "LiteLLM"]
+            primary: ["Transformers", "Agentic LLMs", "DSPy:GEPA", "MCP", "Claude Code SDK", "Context Engineering", "GraphRAG", "PyTorch", "LiteLLM"]
         },
         {
             category: "Cloud & Data",

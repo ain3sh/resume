@@ -296,6 +296,8 @@ export const resumeData: ResumeData = {
                 "Agentic LLMs",
                 "MCP",
                 "Context Engineering",
+                "DSPy",
+                "GEPA",
                 "GraphRAG",
                 "Deep RL",
                 "Supervised/Unsupervised Learning",
