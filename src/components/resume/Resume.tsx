@@ -113,14 +113,14 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         skills={skills}
                         theme={theme}
                     />
+                    <AdditionalQualificationsSection
+                        qualifications={additionalQualifications}
+                        theme={theme}
+                    />
                 </div>
                 <div>
                     <ExperienceSection
                         experience={experience}
-                        theme={theme}
-                    />
-                    <AdditionalQualificationsSection
-                        qualifications={additionalQualifications}
                         theme={theme}
                     />
                 </div>
