@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const smallResumeData: ResumeData = {
     metadata: {
         version: "condensed",
-        lastUpdated: "2025-09-20"
+        lastUpdated: "2025-09-21"
     },
 
     personalInfo: {
@@ -60,13 +60,13 @@ export const smallResumeData: ResumeData = {
                 },
                 {
                     action: "Optimized",
-                    description: "deployment on AWS Bedrock Agentcore",
-                    metrics: "higher token-cache hit rate; reduced p50 latency and token cost"
+                    description: "agent deployment stack on AWS Bedrock Agentcore,",
+                    metrics: "increasing cache-hit rate; lowering p50 latency and token cost"
                 },
                 {
                     action: "Leading",
-                    description: "product launch",
-                    metrics: "serving 150k+ users with planned rollout to ~3M"
+                    description: "product launch effort to",
+                    metrics: "serve 150k+ users with planned rollout to ~3M"
                 }
             ]
         },
