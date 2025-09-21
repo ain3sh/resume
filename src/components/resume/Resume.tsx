@@ -7,7 +7,6 @@ import {
     ProjectsSection,
     SkillsSection,
     PublicationsSection,
-    AdditionalQualificationsSection,
 } from './index';
 
 interface ResumeProps {
@@ -20,8 +19,7 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
     const themeStyles = getThemeStyles(theme);
     const {
         personalInfo, education, experience,
-        projects, skills, publications,
-        additionalQualifications
+        projects, skills, publications
     } = data;
 
     const isMin = personalInfo.links.some(link => link.type.includes(':'));
@@ -101,12 +99,10 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         education={education}
                         theme={theme}
                     />
-                    {isMin && (
-                        <PublicationsSection
-                            publications={publications}
-                            theme={theme}
-                        />
-                    )}
+                    <PublicationsSection
+                        publications={publications}
+                        theme={theme}
+                    />
                     <ProjectsSection
                         projects={projects}
                         theme={theme}
@@ -115,30 +111,12 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         skills={skills}
                         theme={theme}
                     />
-                    {!isMin && (
-                        <AdditionalQualificationsSection
-                            qualifications={additionalQualifications}
-                            theme={theme}
-                        />
-                    )}
                 </div>
                 <div>
                     <ExperienceSection
                         experience={experience}
                         theme={theme}
                     />
-                    {!isMin && (
-                        <PublicationsSection
-                            publications={publications}
-                            theme={theme}
-                        />
-                    )}
-                    {isMin && (
-                        <AdditionalQualificationsSection
-                            qualifications={additionalQualifications}
-                            theme={theme}
-                        />
-                    )}
                 </div>
             </div>
         </div>

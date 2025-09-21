@@ -131,23 +131,16 @@ export const smallResumeData: ResumeData = {
         {
             category: "Cloud & Data",
             primary: ["AWS (EC2, Fargate, Lambda, S3, Bedrock, SageMaker)", "Neo4j", "Pandas", "NumPy", "Dask", "Selenium", "BeautifulSoup"]
+        },
+        {
+            category: "Awards",
+            primary: ["Congressional App Challenge Winner", "Dean's Scholarship", "Eagle Scout"]
         }
     ],
 
     publications: [
         { title: "Ipelets for the Convex Polygonal Geometry", url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92", venue: "SoCG 2024", year: "2024" },
         { title: "AgreeMate: Teaching LLMs to Haggle", url: "https://arxiv.org/abs/2412.18690", venue: "arXiv", year: "2024" }
-    ],
-
-    additionalQualifications: [
-        {
-            category: "Awards",
-            items: [
-                { name: "Congressional App Challenge Winner" },
-                { name: "Dean's Scholarship" },
-                { name: "Eagle Scout" }
-            ]
-        }
     ]
 };
 

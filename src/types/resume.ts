@@ -5,7 +5,6 @@ export interface ResumeData {
     projects: Project[];
     skills: Skill[];
     publications: Publication[];
-    additionalQualifications: AdditionalQualification[];
     metadata: {
         version: 'full' | 'condensed';
         lastUpdated: string;
@@ -80,14 +79,5 @@ export interface PersonalInfo {
                                 'github: ain3sh';
         url: string;
         label?: string;
-    }[];
-}
-
-export interface AdditionalQualification {
-    category: 'Certifications' | 'Awards' | 'Languages' | 'Other';
-    items: {
-        name: string;
-        level?: string;
-        issuer?: string;
     }[];
 }

@@ -380,6 +380,34 @@ export const resumeData: ResumeData = {
                 "Self-teaching",
                 "Iterative Experimentation"
             ]
+        },
+        {
+            category: "Certifications",
+            primary: [
+                "Complete Linear Algebra - Udemy",
+                "Algorithmic Toolbox - UCSD",
+                "Game Theory - Stanford"
+            ]
+        },
+        {
+            category: "Awards",
+            primary: [
+                "National Merit",
+                "Dean's Scholarship",
+                "Eagle Scout",
+                "Congressional App Challenge Winner",
+                "ISKF Black Belt"
+            ]
+        },
+        {
+            category: "Languages",
+            primary: [
+                "English (Native)",
+                "Bengali (Native)",
+                "Hindi (Intermediate)",
+                "Spanish (Intermediate)",
+                "French (Beginner)"
+            ]
         }
     ],
 
@@ -395,46 +423,6 @@ export const resumeData: ResumeData = {
             url: "https://arxiv.org/abs/2412.18690",
             venue: "arXiv",
             year: "2024"
-        }
-    ],
-
-    additionalQualifications: [
-        {
-            category: "Certifications",
-            items: [
-                {
-                    name: "Complete Linear Algebra",
-                    issuer: "Udemy"
-                },
-                {
-                    name: "Algorithmic Toolbox",
-                    issuer: "UCSD"
-                },
-                {
-                    name: "Game Theory",
-                    issuer: "Stanford"
-                }
-            ]
-        },
-        {
-            category: "Awards",
-            items: [
-                { name: "National Merit" },
-                { name: "Dean's Scholarship" },
-                { name: "Eagle Scout" },
-                { name: "Congressional App Challenge Winner" },
-                { name: "ISKF Black Belt" }
-            ]
-        },
-        {
-            category: "Languages",
-            items: [
-                { name: "English", level: "Native" },
-                { name: "Bengali", level: "Native" },
-                { name: "Hindi", level: "Intermediate" },
-                { name: "Spanish", level: "Intermediate" },
-                { name: "French", level: "Beginner" }
-            ]
         }
     ]
 };
