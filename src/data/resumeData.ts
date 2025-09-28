@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-09-21"
+        lastUpdated: "2025-09-28"
     },
 
     personalInfo: {
@@ -74,38 +74,47 @@ export const resumeData: ResumeData = {
             company: "Tilli Software",
             role: "AI Engineering Intern",
             department: "Edge:XDEX:Agent",
-            location: "Remote",
+            location: "Hybrid",
             duration: "July 2025 - Present",
             achievements: [
                 {
-                    action: "Built",
-                    description: "an end-to-end MVP of Tilli Agent using Pocketflow and the Google Agent ADK to act in utility customer web portals",
+                    action: "Engineered",
+                    description: "the Tilli Agent MVP (Pocketflow, Google Agent ADK) for utility customer web portals",
                     metrics: ""
                 },
                 {
-                    action: "Designed",
-                    description: "the Scrape2MCP paradigm to scrape arbitrary sites and extract structured info for API/browser actions, generating template-derived MCP servers with the Claude Code SDK",
+                    action: "Developed",
+                    description: "Scrape2MCP to convert arbitrary sites into structured API/browser actions; generated template-derived MCP servers with the Claude Code SDK",
                     metrics: ""
                 },
                 {
-                    action: "Architected",
-                    description: "the Tilli MCP Super-Server as a shared tool 'store' for user agents",
-                    metrics: ""
-                },
-                {
-                    action: "Optimized",
-                    description: "agent deployment stack on AWS Bedrock Agentcore,",
-                    metrics: "increasing cache-hit rate; lowering p50 latency and token cost"
-                },
-                {
-                    action: "Devised",
-                    description: "automated agent performance logging for asynchronous analysis",
-                    metrics: ""
+                    action: "Architected and optimized",
+                    description: "a shared, multi-tenant MCP Super-Server as a tool store for user agents and Bedrock Agentcore deployment; instrumented automated performance logging for asynchronous analysis and release decisioning,",
+                    metrics: "increased cache-hit rate; reduced p50 latency and token cost"
                 },
                 {
                     action: "Leading",
-                    description: "launch of Tilli Agent",
-                    metrics: "initially serving 150k+ users; planned rollout to ~3M across Tilli Software’s client base"
+                    description: "Tilli Agent launch for an",
+                    metrics: "initial 150k+ users; planned rollout to ~3M"
+                }
+            ]
+        },
+        {
+            company: "University of Maryland CMNS",
+            role: "Student Researcher",
+            department: "Crowd Simulation",
+            location: "College Park, MD",
+            duration: "September 2024 - June 2025",
+            achievements: [
+                {
+                    action: "Investigated",
+                    description: "non-Euclidean formulations for crowd navigation and interaction (Hilbert-ball/hyperbolic distance models; curvature-aware interaction costs)",
+                    metrics: ""
+                },
+                {
+                    action: "Applied",
+                    description: "transformer-based models to language-directed crowd navigation, mapping natural-language instructions to motion goals and primitives",
+                    metrics: ""
                 }
             ]
         },
@@ -118,37 +127,39 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     action: "Implemented",
-                    description: "iteratively enhanced Generative Adversarial Imitation from Observation (GAIfO) agents, substantially outperforming baseline imitation models",
-                    metrics: ""
+                    description: "iteratively enhanced GAIfO agents,",
+                    metrics: "substantially outperforming baseline imitation models"
                 },
                 {
                     action: "Developed",
-                    description: "an optimized GAIfO variant leveraging architectural insights that outperformed prior versions over long horizons",
-                    metrics: ""
+                    description: "an optimized GAIfO variant leveraging architectural insights that",
+                    metrics: "improved long-horizon performance versus prior versions"
                 },
                 {
-                    action: "Enhanced",
-                    description: "GTRI's SCRIMMAGE mass-simulation framework with increased scenario complexity and expert controller functionality",
-                    metrics: ""
+                    action: "Extended",
+                    description: "GTRI’s SCRIMMAGE mass-simulation framework with",
+                    metrics: "higher scenario complexity and expert controller functionality"
                 },
                 {
                     action: "Revamped",
-                    description: "GitLab CI pipelines, boosting speed and efficiency",
-                    metrics: "25% while addressing security vulnerabilities"
+                    description: "GitLab CI pipelines to remediate vulnerabilities and achieved a",
+                    metrics: "≈25% speedup and efficiency gains"
                 },
                 {
                     action: "Optimized",
-                    description: "project-wide Docker image used across repositories, reducing pipeline build times and memory footprint",
-                    metrics: "50% faster builds; 40% better memory efficiency"
+                    description: "the project-wide Docker base image used across repositories",
+                    metrics: "≈50% faster builds; ≈40% lower memory footprint"
                 },
                 {
                     action: "Led",
-                    description: "winning team for sector Intern Challenge delivering a secure, non-GPS intra-campus navigation prototype",
+                    description: "the winning team for the sector Intern Challenge, delivering a secure, non-GPS intra-campus navigation prototype",
                     metrics: ""
                 },
-                {action: "Authored",
-                description: "literature reviews on SoTA Transformer-based models, unlocking",
-                metrics: "direct insights for future project strategies"},
+                {
+                    action: "Authored",
+                    description: "literature reviews on state-of-the-art Transformer models to inform future project strategies",
+                    metrics: ""
+                }
             ]
         },
         {
@@ -159,37 +170,18 @@ export const resumeData: ResumeData = {
             duration: "October 2023 - December 2024",
             achievements: [
                 {
-                    action: "Developed",
+                    action: "Engineered",
                     description: "a visualization dashboard and dataset structures for large-scale breath-data analysis and downstream feature extraction",
                     metrics: ""
                 },
                 {
                     action: "Optimized",
                     description: "dataset loading with Dask and multithreading",
-                    metrics: "400%+ faster throughput"
+                    metrics: "≈400%+ higher throughput"
                 },
                 {
                     action: "Implemented",
                     description: "supervised learning approaches for improved breath segmentation",
-                    metrics: ""
-                }
-            ]
-        },
-        {
-            company: "University of Maryland CMNS",
-            role: "Student Researcher",
-            department: "Crowd Simulation",
-            location: "College Park, MD",
-            duration: "September 2024 - June 2025",
-            achievements: [
-                {
-                    action: "Explored",
-                    description: "applications of non-Euclidean geometries to crowd navigation and interaction",
-                    metrics: ""
-                },
-                {
-                    action: "Applied",
-                    description: "transformer-based models to language-directed crowd navigation",
                     metrics: ""
                 }
             ]
@@ -267,6 +259,23 @@ export const resumeData: ResumeData = {
 
     skills: [
         {
+            category: "ML/AI",
+            primary: [
+                "Transformers",
+                "Agentic LLMs",
+                "MCP",
+                "Context Engineering",
+                "DSPy",
+                "GEPA",
+                "RAG",
+                "Deep RL",
+                "Supervised/Unsupervised Learning",
+                "Mechanistic Interpretability",
+                "Genetic Algorithms",
+                "GANs"
+            ]
+        },
+        {
             category: "Programming",
             primary: [
                 "Python",
@@ -287,22 +296,6 @@ export const resumeData: ResumeData = {
                 "CSS3",
                 "JavaScript",
                 "Assembly"
-            ]
-        },
-        {
-            category: "ML/AI",
-            primary: [
-                "Transformers",
-                "Agentic LLMs",
-                "MCP",
-                "Context Engineering",
-                "DSPy",
-                "GEPA",
-                "GraphRAG",
-                "Deep RL",
-                "Supervised/Unsupervised Learning",
-                "Genetic Algorithms",
-                "GANs"
             ]
         },
         {

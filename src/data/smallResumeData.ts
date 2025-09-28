@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const smallResumeData: ResumeData = {
     metadata: {
         version: "condensed",
-        lastUpdated: "2025-09-21"
+        lastUpdated: "2025-09-28"
     },
 
     personalInfo: {
@@ -47,40 +47,54 @@ export const smallResumeData: ResumeData = {
             company: "Tilli Software",
             role: "AI Engineering Intern",
             department: "Edge:XDEX:Agent",
-            location: "Remote",
+            location: "Hybrid",
             duration: "July 2025 - Present",
             achievements: [
                 {
-                    action: "Built",
-                    description: "end-to-end MVP of Tilli Agent using Pocketflow + Google Agent ADK for utility customer web portals"
+                action: "Engineered",
+                description: "end-to-end Tilli Agent MVP (Pocketflow, Google Agent ADK) for utility customer web portals"
                 },
                 {
-                    action: "Designed",
-                    description: "Scrape2MCP for structured extraction from arbitrary sites; generated template-derived MCP servers (Claude Code SDK)"
+                action: "Developed",
+                description: "Scrape2MCP for site → structured API/browser actions; generated template-derived MCP servers (Claude Code SDK)"
                 },
                 {
-                    action: "Optimized",
-                    description: "agent deployment stack on AWS Bedrock Agentcore,",
-                    metrics: "increasing cache-hit rate; lowering p50 latency and token cost"
+                action: "Architected",
+                description: "shared, multi-tenant MCP Super-Server (tool store) and Bedrock Agentcore deployment; instrumented automated performance logging",
+                metrics: "↑ cache-hit; ↓ p50 latency & token cost"
                 },
                 {
-                    action: "Leading",
-                    description: "product launch effort to",
-                    metrics: "serve 150k+ users with planned rollout to ~3M"
+                action: "Launched",
+                description: "Tilli Agent",
+                metrics: "served 150k+ initially; rollout planned to ~3M"
                 }
             ]
         },
         {
             company: "Johns Hopkins University Applied Physics Laboratory",
-            role: "Computer Science Intern - Interim Clearance",
+            role: "Computer Science Intern — Interim Clearance",
             department: "Force Projection Sector: Ocean Systems & Engineering Group",
             location: "Laurel, MD",
             duration: "May 2024 - Aug 2024",
             achievements: [
-                { action: "Developed", description: "enhanced GAIfO agents outperforming baselines over long horizons" },
-                { action: "Revamped", description: "GitLab CI pipelines", metrics: "≈25% faster and more secure" },
-                { action: "Optimized", description: "shared Docker image across repos", metrics: "≈50% faster builds; ≈40% lower memory" },
-                { action: "Enhanced", description: "SCRIMMAGE simulation with added complexity and expert controllers" }
+                {
+                action: "Developed",
+                description: "enhanced GAIfO agents and an optimized variant outperforming baselines over long horizons"
+                },
+                {
+                action: "Enhanced",
+                description: "SCRIMMAGE mass-simulation with higher scenario complexity and expert controllers"
+                },
+                {
+                action: "Revamped",
+                description: "GitLab CI pipelines",
+                metrics: "≈25% faster with vulnerability remediation"
+                },
+                {
+                action: "Optimized",
+                description: "shared Docker base image across repos",
+                metrics: "≈50% faster builds; ≈40% lower memory"
+                }
             ]
         },
         {
@@ -90,9 +104,19 @@ export const smallResumeData: ResumeData = {
             location: "College Park, MD",
             duration: "October 2023 - December 2024",
             achievements: [
-                { action: "Created", description: "visualization dashboard + data structures for large-scale breath analysis" },
-                { action: "Optimized", description: "dataset loading with Dask + multithreading", metrics: "400%+ throughput improvement" },
-                { action: "Implemented", description: "supervised methods for improved breath segmentation" }
+                {
+                action: "Created",
+                description: "visualization dashboard and dataset structures for large-scale breath-data analysis"
+                },
+                {
+                action: "Optimized",
+                description: "dataset loading with Dask + multithreading",
+                metrics: "≈400%+ throughput improvement"
+                },
+                {
+                action: "Implemented",
+                description: "supervised methods for improved breath segmentation"
+                }
             ]
         }
     ],
@@ -126,7 +150,7 @@ export const smallResumeData: ResumeData = {
         },
         {
             category: "AI/Agents",
-            primary: ["Transformers", "Agentic LLMs", "DSPy:GEPA", "MCP", "Claude Code SDK", "Context Engineering", "GraphRAG", "PyTorch", "LiteLLM"]
+            primary: ["Transformers", "Agentic LLMs", "DSPy:GEPA", "MCP", "Claude Code SDK", "Context Engineering", "Mechanistic Interpretability", "RAG", "PyTorch"]
         },
         {
             category: "Cloud & Data",
