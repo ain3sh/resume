@@ -40,16 +40,16 @@ export const resumeData: ResumeData = {
                 {
                     category: "AI/ML",
                     courses: [
-                        "Graduate NLP; HRI/Embodied AI; Computer Vision;",
+                        "Graduate NLP; HRI/Embodied AI; Computer Vision",
                         "Intro to: Multimodal DL, AI, ML, Data Science"
                     ]
                 },
                 {
                     category: "Math",
                     courses: [
-                        "Calc III; Advanced Linear Algebra; Differential Equations;",
-                        "Advanced Calculus; Abstract Algebra;",
-                        "Mathematical Finance: Derivatives & Stochastic Models;",
+                        "Calc III; Advanced Linear Algebra; Differential Equations",
+                        "Advanced Calculus; Abstract Algebra",
+                        "Mathematical Finance: Derivatives & Stochastic Models",
                         "Transform Methods; Numerical Analysis"
                     ]
                 },
