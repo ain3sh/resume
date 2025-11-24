@@ -58,7 +58,7 @@ export const resumeData: ResumeData = {
                     courses: [
                         "Quantum Computing; Algorithms; Data Structures",
                         "Computer Systems; Object-Oriented Programming",
-                        "Organization of Languages"
+                        "Language Design"
                     ]
                 },
                 {
@@ -207,12 +207,12 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Open-source collection of optimized context-gathering tools (ask-docs-agent, fetch-docs, fetch-site) for agents that minimize token burn and latency while maximizing relevant information retrieval"
+                "Open-source context-gathering tools (ask-docs-agent, fetch-docs, fetch-site) for agents that minimize token burn and latency while maximizing relevant information retrieval"
             ],
             achievements: [
                 {
                     type: "metric",
-                    description: "fetch-docs tool outperforms Context7's MCP by wrapping their API to be more agent-friendly and reduce round-trip invocation to a single tool call"
+                    description: "fetch-docs tool outperforms Context7's MCP by wrapping their API to be more agent-friendly, reducing round-trip invocation to a single call"
                 },
                 {
                     type: "metric",
@@ -260,7 +260,7 @@ export const resumeData: ResumeData = {
                 },
                 {
                     type: "recognition",
-                    description: "Guest Speaker at 2022 US Patent and Trademark Office APPLY Yourself event"
+                    description: "Guest Speaker at USPTO's 2022 APPLY Yourself event"
                 }
             ]
         },
@@ -274,7 +274,7 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     type: "award",
-                    description: "Best Education Award: 2022 Blairhacks_5 Hackathon"
+                    description: "Best Education @ 2022 Blairhacks_5 Hackathon"
                 }
             ]
         }
