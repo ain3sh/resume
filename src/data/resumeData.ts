@@ -35,7 +35,7 @@ export const resumeData: ResumeData = {
             ],
             graduation: "December 2025",
             gpa: "3.384",
-            honors: ["University, CS Departmental Honors; BS/MS; Dean's List"],
+            honors: ["University, Departmental Honors; Dean's List"],
             coursework: [
                 {
                     category: "AI/ML",
@@ -345,7 +345,7 @@ export const resumeData: ResumeData = {
             ]
         },
         {
-            category: "Recognition",
+            category: "Recognitions",
             primary: [
                 "Interim Security Clearance",
                 "Congressional App Winner",

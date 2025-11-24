@@ -23,7 +23,7 @@ export const smallResumeData: ResumeData = {
             degrees: ["Dual BS: Computer Science (ML) + Mathematics"],
             graduation: "Dec 2025",
             gpa: "3.38",
-            honors: ["University/CS Honors, BS/MS, Dean's List"],
+            honors: ["University/CS Honors, Dean's List"],
             coursework: []
         }
     ],
