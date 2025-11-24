@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-09-28"
+        lastUpdated: "2025-11-24"
     },
 
     personalInfo: {
@@ -72,29 +72,29 @@ export const resumeData: ResumeData = {
     experience: [
         {
             company: "Tilli Software",
-            role: "AI Engineering Intern",
-            department: "Edge:XDEX:Agent",
+            role: "AI Engineering MTS",
+            department: "Applied Research:XDEX",
             location: "Hybrid",
             duration: "July 2025 - Present",
             achievements: [
                 {
                     action: "Engineered",
-                    description: "the Tilli Agent MVP (Pocketflow, Google Agent ADK) for utility customer web portals",
-                    metrics: ""
+                    description: "the Tilli Agent MVP (Kosong + DSPy + lastmileai/mcp-agent) to act autonomously on behalf of users, on any crawled site",
+                    metrics: "at < $0.01/task"
                 },
                 {
                     action: "Developed",
-                    description: "Scrape2MCP to convert arbitrary sites into structured API/browser actions; generated template-derived MCP servers with the Claude Code SDK",
+                    description: "site2mcp and leading the effort to extract structured data from arbitrary sites and generated template-derived MCP servers (Kosong + browser-use + Claude Agent SDK)",
                     metrics: ""
                 },
                 {
-                    action: "Architected and optimized",
-                    description: "a shared, multi-tenant MCP Super-Server as a tool store for user agents and Bedrock Agentcore deployment; instrumented automated performance logging for asynchronous analysis and release decisioning,",
+                    action: "Architected",
+                    description: "a shared, multi-tenant MCP Super-Server as a centralized auth and tool/resource store across usecases; instrumented automated performance logging for post-hoc analysis and GEPA-optimization pipelines,",
                     metrics: "increased cache-hit rate; reduced p50 latency and token cost"
                 },
                 {
                     action: "Leading",
-                    description: "Tilli Agent launch for an",
+                    description: "Tilli Agent (tilli.ai) launch for an",
                     metrics: "initial 150k+ users; planned rollout to ~3M"
                 }
             ]
@@ -126,29 +126,19 @@ export const resumeData: ResumeData = {
             duration: "May 2024 - Aug 2024",
             achievements: [
                 {
-                    action: "Implemented",
-                    description: "iteratively enhanced GAIfO agents,",
-                    metrics: "substantially outperforming baseline imitation models"
-                },
-                {
                     action: "Developed",
                     description: "an optimized GAIfO variant leveraging architectural insights that",
-                    metrics: "improved long-horizon performance versus prior versions"
+                    metrics: "improved long-horizon performance versus prior iterations that already outperformed baselines imitation models"
                 },
                 {
                     action: "Extended",
-                    description: "GTRI’s SCRIMMAGE mass-simulation framework with",
+                    description: "GTRI's SCRIMMAGE mass-simulation framework with",
                     metrics: "higher scenario complexity and expert controller functionality"
                 },
                 {
                     action: "Revamped",
                     description: "GitLab CI pipelines to remediate vulnerabilities and achieved a",
-                    metrics: "≈25% speedup and efficiency gains"
-                },
-                {
-                    action: "Optimized",
-                    description: "the project-wide Docker base image used across repositories",
-                    metrics: "≈50% faster builds; ≈40% lower memory footprint"
+                    metrics: "≈25% speedup and efficiency gains; ≈50% faster builds; ≈40% lower memory footprint for project-wide Docker base image"
                 },
                 {
                     action: "Led",
@@ -170,14 +160,9 @@ export const resumeData: ResumeData = {
             duration: "October 2023 - December 2024",
             achievements: [
                 {
-                    action: "Engineered",
-                    description: "a visualization dashboard and dataset structures for large-scale breath-data analysis and downstream feature extraction",
-                    metrics: ""
-                },
-                {
                     action: "Optimized",
                     description: "dataset loading with Dask and multithreading",
-                    metrics: "≈400%+ higher throughput"
+                    metrics: "≈400%+ higher throughput, with real-time dataset visualization capabilities for large-scale analysis and feature extraction"
                 },
                 {
                     action: "Implemented",
@@ -204,25 +189,63 @@ export const resumeData: ResumeData = {
 
     projects: [
         {
-            name: "Vizier",
-            role: "Team Lead/ML Developer",
-            isActive: false,
+            name: "OpenSkills",
+            role: "Solo Developer",
+            isActive: true,
             description: [
-                "AI-powered personalized newsletter platform; MVP built for Bitcamp 2025",
-                "Test-time MoE agentic architecture improving context retrieval via document-expert LLMs"
+                "Open-source, agent-framework-agnostic implementation of Anthropic's Skills protocol that achieves full parity with their closed-source, first-party-only version"
             ],
-            achievements: []
+            achievements: [
+                {
+                    type: "metric",
+                    description: "Matches and exceeds baseline skill activation by agents without manual prompting, by replacing the Anthropic `Skill` mcp-style tool approach with a clean CLI tool + AGENTS.md specification"
+                }
+            ]
         },
         {
-            name: "QSafe",
+            name: "context-mcp",
             role: "Solo Developer",
-            isActive: false,
+            isActive: true,
             description: [
-                "Open-source Python/Rust quantum-safe password manager using lattice-based cryptography",
-                "Secure Docker manager and end-to-end encrypted CLI–container protocol; MVP for Bitcamp 2023"
+                "Open-source collection of optimized context-gathering tools (ask-docs-agent, fetch-docs, fetch-site) for agents that minimize token burn and latency while maximizing relevant information retrieval"
             ],
-            achievements: []
+            achievements: [
+                {
+                    type: "metric",
+                    description: "fetch-docs tool outperforms Context7's MCP by wrapping their API to be more agent-friendly and reduce round-trip invocation to a single tool call"
+                },
+                {
+                    type: "metric",
+                    description: "fetch-site tool achieves 25-50% lower token usage than most agent CLIs default `WebFetch` tools by auto-saving extracted content locally so agents can read what they need vs forcing full reads + re-fetches"
+                }
+            ]
         },
+        {
+            name: "climb-cli",
+            role: "Solo Developer",
+            isActive: true,
+            description: [
+                "Open-source tool that auto-generates user-friendly TUI interfaces for almost any command-line program by extracting arg info and man pages",
+                "Non-interactive mode for LLM agents enables easy learning of complex call-graphs and arg-structures for CLI tools, without guesswork or web searches"
+            ],
+            achievements: [
+                {
+                    type: "metric",
+                    description: "Eliminates manual lookup of complex CLI arguments, reducing agent/human errors and improving usability"
+                }
+            ]
+        },
+        // {
+        //     name: "systemzero/rewind",
+        //     role: "Solo Developer",
+        //     isActive: true,
+        //     description: [
+        //         "Open-source, agent-framework-agnostic implementation of Anthropic's Checkpointing + /rewind protocol that achieves full parity with their closed-source, first-party-only version"
+        //     ],
+        //     achievements: [
+                
+        //     ]
+        // },
         {
             name: "CoronaSafe",
             role: "Team Lead/Backend Developer",
@@ -259,149 +282,76 @@ export const resumeData: ResumeData = {
 
     skills: [
         {
+            category: "Agent Infrastructure",
+            primary: [
+                "MCP",
+                "Kosong",
+                "LMCache",
+                "DSPy/GEPA",
+                "Claude Code SDK",
+                "Google Agent ADK/A2A",
+                "Pocketflow",
+                "LiteLLM",
+                "Context Engineering"
+            ]
+        },
+        {
             category: "ML/AI",
             primary: [
                 "Transformers",
                 "Agentic LLMs",
-                "MCP",
-                "Context Engineering",
-                "DSPy",
-                "GEPA",
                 "RAG",
                 "Deep RL",
-                "Supervised/Unsupervised Learning",
                 "Mechanistic Interpretability",
-                "Genetic Algorithms",
-                "GANs"
+                "GAIfO",
+                "PyTorch",
+                "HuggingFace"
             ]
         },
         {
-            category: "Programming",
+            category: "Engineering",
             primary: [
                 "Python",
                 "C/C++",
-                "Fullstack Development",
-                "APIs",
-                "DevOps",
-                "Webhosting",
-                "Design Paradigms"
+                "Rust",
+                "Docker",
+                "Git/GitLab CI",
+                "FastAPI",
+                "React"
             ],
             secondary: [
                 "Java",
-                "Rust",
-                "Lua",
                 "MATLAB",
-                "Flutter/Dart",
-                "HTML5",
-                "CSS3",
-                "JavaScript",
-                "Assembly"
+                "ROS",
+                "Qiskit"
             ]
         },
         {
-            category: "Data Science",
+            category: "Cloud & Data",
             primary: [
-                "Statistical Analysis",
-                "Data Processing"
+                "AWS (Bedrock, SageMaker, Lambda, Fargate)",
+                "PostgreSQL/NeonDB",
+                "Neo4j",
+                "Dask",
+                "Selenium/BeautifulSoup"
             ]
         },
         {
-            category: "Finance",
+            category: "Quantitative Finance",
             primary: [
-                "Brownian Motion",
-                "Black-Scholes",
-                "Arbitrage Pricing",
                 "Stochastic Calculus",
+                "Black-Scholes",
                 "Delta Hedging"
             ]
         },
         {
-            category: "Tools & Technologies",
+            category: "Recognition",
             primary: [
-                "Git",
-                "GitHub/Lab",
-                "Docker",
-                "Linux",
-                "Bash",
-                "WSL2",
-                "Python",
-                "FastAPI",
-                "React",
-                "Flask",
-                "RESTful",
-                "PostgreSQL",
-                "NeonDB",
-                "Neo4j",
-                "LiteLLM",
-                "Claude Code SDK",
-                "MCP",
-                "Google Agent ADK",
-                "Google Agent2Agent (A2A)",
-                "Pocketflow",
-                "OpenAI API",
-                "HuggingFace",
-                "PyTorch",
-                "NumPy",
-                "Pandas",
-                "Dask",
-                "NLTK",
-                "SciPy",
-                "spaCy",
-                "scikit-learn",
-                "Seaborn",
-                "Matplotlib",
-                "TensorBoard",
-                "Selenium",
-                "BeautifulSoup",
-                "LaTeX",
-                "PowerShell",
-                "Memory Profiler",
-                "ROS",
-                "IBM Qiskit",
-                "AWS EC2",
-                "AWS Fargate",
-                "AWS Lambda",
-                "AWS S3",
-                "AWS Bedrock",
-                "AWS SageMaker"
-            ]
-        },
-        {
-            category: "Soft Skills",
-            primary: [
-                "First-Principles Problem Solving",
-                "Leadership",
-                "Technical Writing",
-                "Self-teaching",
-                "Iterative Experimentation"
-            ]
-        },
-        {
-            category: "Certifications",
-            primary: [
-                "Complete Linear Algebra - Udemy",
-                "Algorithmic Toolbox - UCSD",
-                "Game Theory - Stanford"
-            ]
-        },
-        {
-            category: "Awards",
-            primary: [
-                "National Merit",
-                "Dean's Scholarship",
+                "Interim Security Clearance",
+                "Congressional App Winner",
                 "Eagle Scout",
-                "Congressional App Challenge Winner",
-                "ISKF Black Belt"
-            ]
-        },
-        {
-            category: "Languages",
-            primary: [
-                "English (Native)",
-                "Bengali (Native)",
-                "Hindi (Intermediate)",
-                "Spanish (Intermediate)",
-                "French (Beginner)"
+                "National Merit Scholar",
+                "Dean's Scholarship"
             ]
         }
     ],

@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const smallResumeData: ResumeData = {
     metadata: {
         version: "condensed",
-        lastUpdated: "2025-09-28"
+        lastUpdated: "2025-11-24"
     },
 
     personalInfo: {
@@ -19,103 +19,56 @@ export const smallResumeData: ResumeData = {
 
     education: [
         {
-            institution: "University of Maryland (College Park)",
-            degrees: ["Dual BS in Computer Science (Machine Learning) and Mathematics"],
-            graduation: "December 2025",
-            gpa: "3.384",
-            honors: ["University + CS Honors, Dean's List"],
-            coursework: [
-                {
-                    category: "AI/ML",
-                    courses: ["Graduate NLP; Computer Vision; HRI/Embodied AI; Intro to: Multimodal DL, AI, ML, Data Science"]
-                },
-                {
-                    category: "Math",
-                    courses: ["Calculus III; Advanced Linear Algebra; Differential Equations; Abstract Algebra; Transform Methods; Numerical Analysis; Financial Models"]
-                },
-                {
-                    category: "CS",
-                    courses: ["Algorithms; Data Structures; Computer Systems; OOP; Programming Languages; Quantum Computing"]
-                },
-                { category: "Stat", courses: ["Applied Prob&Stat; Probability Theory"] }
-            ]
+            institution: "University of Maryland",
+            degrees: ["Dual BS: Computer Science (ML) + Mathematics"],
+            graduation: "Dec 2025",
+            gpa: "3.38",
+            honors: ["University/CS Honors, BS/MS, Dean's List"],
+            coursework: []
         }
     ],
 
     experience: [
         {
             company: "Tilli Software",
-            role: "AI Engineering Intern",
-            department: "Edge:XDEX:Agent",
+            role: "AI Engineering MTS",
+            department: "",
             location: "Hybrid",
-            duration: "July 2025 - Present",
+            duration: "Jul 2025 - Present",
             achievements: [
                 {
-                action: "Engineered",
-                description: "end-to-end Tilli Agent MVP (Pocketflow, Google Agent ADK) for utility customer web portals"
+                    action: "Built",
+                    description: "autonomous agents for ANY site (Kosong/DSPy/MCP)",
+                    metrics: "<$0.01/task, 150k+ users"
                 },
                 {
-                action: "Developed",
-                description: "Scrape2MCP for site → structured API/browser actions; generated template-derived MCP servers (Claude Code SDK)"
+                    action: "Created",
+                    description: "site2mcp: structured extraction → MCP servers",
+                    metrics: "3M user rollout planned"
                 },
                 {
-                action: "Architected",
-                description: "shared, multi-tenant MCP Super-Server (tool store) and Bedrock Agentcore deployment; instrumented automated performance logging",
-                metrics: "↑ cache-hit; ↓ p50 latency & token cost"
-                },
-                {
-                action: "Launched",
-                description: "Tilli Agent",
-                metrics: "served 150k+ initially; rollout planned to ~3M"
+                    action: "Architected",
+                    description: "multi-tenant MCP super-server + GEPA optimization",
+                    metrics: "↓50% latency, ↓40% tokens"
                 }
             ]
         },
         {
-            company: "Johns Hopkins University Applied Physics Laboratory",
-            role: "Computer Science Intern — Interim Clearance",
-            department: "Force Projection Sector: Ocean Systems & Engineering Group",
+            company: "Johns Hopkins APL",
+            role: "CS Intern - Interim Security Clearance",
+            department: "",
             location: "Laurel, MD",
-            duration: "May 2024 - Aug 2024",
+            duration: "May - Aug 2024",
             achievements: [
                 {
-                action: "Developed",
-                description: "enhanced GAIfO agents and an optimized variant outperforming baselines over long horizons"
+                    action: "Developed",
+                    description: "GAIfO variant outperforming imitation learning baselines",
+                    metrics: ""
                 },
                 {
-                action: "Enhanced",
-                description: "SCRIMMAGE mass-simulation with higher scenario complexity and expert controllers"
-                },
-                {
-                action: "Revamped",
-                description: "GitLab CI pipelines",
-                metrics: "≈25% faster with vulnerability remediation"
-                },
-                {
-                action: "Optimized",
-                description: "shared Docker base image across repos",
-                metrics: "≈50% faster builds; ≈40% lower memory"
-                }
-            ]
-        },
-        {
-            company: "University of Maryland MIND Lab",
-            role: "Data Science/ML Research Intern",
-            department: "Breathing Analysis Project",
-            location: "College Park, MD",
-            duration: "October 2023 - December 2024",
-            achievements: [
-                {
-                action: "Created",
-                description: "visualization dashboard and dataset structures for large-scale breath-data analysis"
-                },
-                {
-                action: "Optimized",
-                description: "dataset loading with Dask + multithreading",
-                metrics: "≈400%+ throughput improvement"
-                },
-                {
-                action: "Implemented",
-                description: "supervised methods for improved breath segmentation"
+                    action: "Optimized",
+                    description: "CI/Docker pipelines",
+                    metrics: "50% faster builds, 40% less memory"
                 }
             ]
         }
@@ -123,21 +76,11 @@ export const smallResumeData: ResumeData = {
 
     projects: [
         {
-            name: "Vizier",
-            role: "Team Lead/ML Developer",
-            isActive: false,
+            name: "context-mcp",
+            role: "Creator",
+            isActive: true,
             description: [
-                "AI newsletter MVP (Bitcamp 2025) using test-time MoE + document-expert LLMs for improved retrieval"
-            ],
-            achievements: []
-        },
-        {
-            name: "CoronaSafe",
-            role: "Team Lead/Developer",
-            isActive: false,
-            description: [
-                "Python/Flutter risk assessment using time-weighted foot-traffic + density analytics",
-                "Congressional App Challenge Winner (2021 MD-08); Guest Speaker, USPTO APPLY Yourself (2022)"
+                "Agent context tools: 25-50% lower tokens vs standard WebFetch, single-call API vs Context7's multi-round trips"
             ],
             achievements: []
         }
@@ -145,25 +88,17 @@ export const smallResumeData: ResumeData = {
 
     skills: [
         {
-            category: "Languages & Platforms",
-            primary: ["Python", "C/C++", "Java", "Linux", "Docker", "Git", "CI/CD", "FastAPI", "React", "Flask", "PostgreSQL"]
+            category: "Tech",
+            primary: ["MCP", "Kosong", "DSPy/GEPA", "LiteLLM", "Claude SDK", "PyTorch", "Python", "C++", "Docker", "AWS", "PostgreSQL"]
         },
         {
-            category: "AI/Agents",
-            primary: ["Transformers", "Agentic LLMs", "DSPy:GEPA", "MCP", "Claude Code SDK", "Context Engineering", "Mechanistic Interpretability", "RAG", "PyTorch"]
-        },
-        {
-            category: "Cloud & Data",
-            primary: ["AWS (EC2, Fargate, Lambda, S3, Bedrock, SageMaker)", "Neo4j", "Pandas", "NumPy", "Dask", "Selenium", "BeautifulSoup"]
-        },
-        {
-            category: "Awards",
-            primary: ["Congressional App Challenge Winner", "Dean's Scholarship", "Eagle Scout"]
+            category: "Impact",
+            primary: ["2 Publications (SoCG'24, arXiv)", "Interim Clearance", "Congressional App Winner", "Eagle Scout"]
         }
     ],
 
     publications: [
-        { title: "Ipelets for the Convex Polygonal Geometry", url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92", venue: "SoCG 2024", year: "2024" },
+        { title: "Ipelets for Convex Polygonal Geometry", url: "https://doi.org/10.4230/LIPIcs.SoCG.2024.92", venue: "SoCG", year: "2024" },
         { title: "AgreeMate: Teaching LLMs to Haggle", url: "https://arxiv.org/abs/2412.18690", venue: "arXiv", year: "2024" }
     ]
 };
