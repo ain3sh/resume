@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const resumeData: ResumeData = {
     metadata: {
         version: "full",
-        lastUpdated: "2025-11-24"
+        lastUpdated: "2025-11-29"
     },
 
     personalInfo: {
@@ -17,12 +17,12 @@ export const resumeData: ResumeData = {
                 url: "https://ain3sh.com/"
             },
             {
-                type: "linkedin",
-                url: "https://www.linkedin.com/in/ain3sh/"
-            },
-            {
                 type: "github",
                 url: "https://github.com/ain3sh/"
+            },
+            {
+                type: "linkedin",
+                url: "https://www.linkedin.com/in/ain3sh/"
             }
         ]
     },
@@ -73,7 +73,7 @@ export const resumeData: ResumeData = {
         {
             company: "Tilli Software",
             role: "AI Engineering MTS",
-            department: "Applied Research:XDEX",
+            department: "Applied Research:Project ISO",
             location: "Hybrid",
             duration: "July 2025 - Present",
             achievements: [

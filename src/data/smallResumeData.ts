@@ -3,7 +3,7 @@ import { ResumeData } from '../types/resume';
 export const smallResumeData: ResumeData = {
     metadata: {
         version: "condensed",
-        lastUpdated: "2025-11-24"
+        lastUpdated: "2025-11-29"
     },
 
     personalInfo: {
@@ -12,8 +12,8 @@ export const smallResumeData: ResumeData = {
         phone: "(301) 820-8957",
         links: [
             { type: "site: ain3sh.com", url: "https://ain3sh.com/" },
-            { type: "linkedin: ain3sh", url: "https://www.linkedin.com/in/ain3sh/" },
-            { type: "github: ain3sh", url: "https://github.com/ain3sh/" }
+            { type: "github: ain3sh", url: "https://github.com/ain3sh/" },
+            { type: "linkedin: ain3sh", url: "https://www.linkedin.com/in/ain3sh/" }
         ]
     },
 
@@ -32,7 +32,7 @@ export const smallResumeData: ResumeData = {
         {
             company: "Tilli Software",
             role: "AI Engineering MTS",
-            department: "",
+            department: "Applied Research:Project ISO",
             location: "Hybrid",
             duration: "Jul 2025 - Present",
             achievements: [
