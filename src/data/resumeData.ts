@@ -77,12 +77,12 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     action: "Investigated",
-                    description: "non-Euclidean formulations for crowd navigation and interaction (Hilbert-ball/hyperbolic distance models; curvature-aware interaction costs)",
+                    description: "non-Euclidean crowd navigation + interaction (Hilbert-ball/hyperbolic distances; curvature-aware costs)",
                     metrics: ""
                 },
                 {
                     action: "Applied",
-                    description: "transformer-based models to language-directed crowd navigation, mapping natural-language instructions to motion goals and primitives",
+                    description: "transformer models for language-directed crowd navigation: map natural-language instructions to motion goals and primitives",
                     metrics: ""
                 }
             ]
@@ -96,8 +96,8 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     action: "Developed",
-                    description: "an optimized GAIfO variant leveraging architectural insights that",
-                    metrics: "improved long-horizon performance versus prior iterations that already outperformed baselines imitation models"
+                    description: "an optimized GAIfO variant leveraging architectural insights",
+                    metrics: "improved long-horizon performance versus prior iterations already outperforming baseline imitation models"
                 },
                 {
                     action: "Extended",
@@ -106,8 +106,8 @@ export const resumeData: ResumeData = {
                 },
                 {
                     action: "Revamped",
-                    description: "GitLab CI + Docker pipelines to remediate vulnerabilities and improve build efficiency",
-                    metrics: "≈25% faster CI; ≈50% faster builds; ≈40% lower memory footprint for the project-wide Docker base image"
+                    description: "GitLab CI + Docker pipelines: remediated vulnerabilities and improved build efficiency",
+                    metrics: "≈25% faster CI; ≈50% faster builds; ≈40% lower memory footprint (project-wide Docker base image)"
                 },
                 {
                     action: "Led",
@@ -116,7 +116,7 @@ export const resumeData: ResumeData = {
                 },
                 {
                     action: "Synthesized",
-                    description: "state-of-the-art Transformer literature into internal design memos that guided downstream model selection and project roadmap",
+                    description: "state-of-the-art Transformer literature into internal design memos guiding downstream model selection and project roadmap",
                     metrics: ""
                 }
             ]
@@ -130,8 +130,8 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     action: "Optimized",
-                    description: "dataset ingestion + loading with Dask and multithreading for large longitudinal breathing datasets",
-                    metrics: "≈400%+ higher throughput on high-tens-of-GB/patient-day data; enabled real-time visualization for analysis + feature extraction"
+                    description: "dataset ingestion + loading with Dask and multithreading for longitudinal breathing datasets",
+                    metrics: "≈400%+ higher throughput on high-tens-of-GB/patient-day data; enabled real-time visualization for analysis and feature extraction"
                 },
                 {
                     action: "Evaluated",
