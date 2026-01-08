@@ -5,10 +5,8 @@ const path = require('path');
 const VERCEL_URL = process.env.VERCEL_URL || 'http://localhost:3000';
 console.log('URL:', VERCEL_URL);
 const PDF_CONFIGS = [
-    { isDark: true, isFull: true, isCompressed: true },
-    { isDark: false, isFull: true, isCompressed: true },
-    { isDark: true, isFull: false, isCompressed: true },
-    { isDark: false, isFull: false, isCompressed: true }
+    { isDark: true, isCompressed: true },
+    { isDark: false, isCompressed: true }
 ];
 
 
@@ -54,7 +52,7 @@ async function generatePDFs() {
         });
 
         for (const config of PDF_CONFIGS) {
-            const url = `${VERCEL_URL}?theme=${config.isDark ? 'dark' : 'light'}&version=${config.isFull ? 'full' : 'min'}&compressed=${config.isCompressed}`;
+            const url = `${VERCEL_URL}?theme=${config.isDark ? 'dark' : 'light'}&compressed=${config.isCompressed}`;
             console.log('Processing Variant:', url);
 
             try { // wait till html is parsed, timeout after 90s
@@ -89,7 +87,7 @@ async function generatePDFs() {
             }
 
             // verify download
-            const expectedFileName = `ain3sh-${config.isCompressed ? 'compressed' : 'raw'}-${config.isFull ? 'full' : 'min'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
+            const expectedFileName = `ain3sh-${config.isCompressed ? 'compressed' : 'raw'}-${config.isDark ? 'dark' : 'light'}-resume.pdf`;
             const filePath = path.join(pdfDir, expectedFileName);
             const fileExists = await waitForFile(filePath, 15000); // wait up to 15s
             if (fileExists) {
