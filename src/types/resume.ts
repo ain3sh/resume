@@ -6,22 +6,15 @@ export interface ResumeData {
     skills: Skill[];
     publications: Publication[];
     metadata: {
-        version: 'full' | 'condensed';
         lastUpdated: string;
     };
-}
-
-export interface ResumeVersion {
-    id: string;
-    name: string;
-    data: ResumeData;
 }
 
 export interface Education {
     institution: string;
     degrees: string[];
     graduation: string;
-    gpa: string;
+    gpa?: string;
     honors: string[];
     coursework: {
         category: string;
@@ -74,9 +67,7 @@ export interface PersonalInfo {
     location?: string;
     clearance?: string;
     links: {
-        type: 'site' | 'linkedin' | 'github' | 'other' |
-                'site: ain3sh.com' | 'linkedin: ain3sh' |
-                                'github: ain3sh';
+        type: 'site' | 'linkedin' | 'github' | 'other';
         url: string;
         label?: string;
     }[];

@@ -18,7 +18,10 @@ const EducationSection: React.FC<EducationSectionProps> = ({ education, theme })
                 {edu.degrees.map((degree, idx) => (
                     <p key={idx} className="italic">{degree}</p>
                 ))}
-                <p>{edu.graduation} | GPA: {edu.gpa}</p>
+                <p>
+                    {edu.graduation}
+                    {edu.gpa ? ` | GPA: ${edu.gpa}` : ''}
+                </p>
                 {edu.honors.length > 0 && (
                     <p>{edu.honors.join('; ')}</p>
                 )}

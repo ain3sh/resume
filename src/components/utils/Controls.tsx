@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Sun, Moon, Maximize2, Minimize2, Shrink, Expand, FileDown } from 'lucide-react';
+import { Sun, Moon, Shrink, Expand, FileDown } from 'lucide-react';
 
 interface ControlsProps {
     isDarkMode: boolean;
-    isFullResume: boolean;
     isCompressed: boolean;
     toggleTheme: () => void;
-    toggleResumeVersion: () => void;
     setIsCompressed: (compressed: boolean) => void;
     generatePDFHandler: () => void;
     isPDFReady: boolean;
@@ -35,10 +33,8 @@ const useScrollBehavior = () => {
 
 const Controls: React.FC<ControlsProps> = ({ 
     isDarkMode,
-    isFullResume,
     isCompressed,
     toggleTheme,
-    toggleResumeVersion,
     setIsCompressed,
     generatePDFHandler,
     isPDFReady,
@@ -91,30 +87,6 @@ const Controls: React.FC<ControlsProps> = ({
                             </button>
                             <span className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                                 {isDarkMode ? 'Dark' : 'Light'} Theme
-                            </span>
-                        </div>
-
-                        {/* Resume Content Toggle */}
-                        <div className="flex flex-col items-center">
-                            <button
-                                className="relative w-20 h-10 rounded-full p-1 bg-gray-100 dark:bg-gray-800 transition-colors duration-200 ease-in-out"
-                                onClick={toggleResumeVersion}
-                                aria-label={`Currently showing ${isFullResume ? 'full' : 'condensed'} resume`}
-                            >
-                                <div
-                                    className={`absolute top-1 left-1 flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 transform transition-transform duration-200 ease-in-out ${
-                                        isFullResume ? 'translate-x-10' : 'translate-x-0'
-                                    }`}
-                                >
-                                    {isFullResume ? (
-                                        <Maximize2 size={18} className="text-gray-800 dark:text-gray-100" />
-                                    ) : (
-                                        <Minimize2 size={18} className="text-gray-800 dark:text-gray-100" />
-                                    )}
-                                </div>
-                            </button>
-                            <span className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                {isFullResume ? 'Full' : 'Min'} Resume
                             </span>
                         </div>
 

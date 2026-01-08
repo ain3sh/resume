@@ -2,8 +2,7 @@ import { ResumeData } from '../types/resume';
 
 export const resumeData: ResumeData = {
     metadata: {
-        version: "full",
-        lastUpdated: "2025-11-29"
+        lastUpdated: "2026-01-08"
     },
 
     personalInfo: {
@@ -34,38 +33,8 @@ export const resumeData: ResumeData = {
                 "Dual BS in Computer Science (Machine Learning) and Mathematics"
             ],
             graduation: "December 2025",
-            gpa: "3.384",
             honors: ["University, Departmental Honors; Dean's List"],
-            coursework: [
-                {
-                    category: "AI/ML",
-                    courses: [
-                        "Graduate NLP; HRI/Embodied AI; Computer Vision",
-                        "Intro to: Multimodal DL, AI, ML, Data Science"
-                    ]
-                },
-                {
-                    category: "Math",
-                    courses: [
-                        "Calc III; Advanced Linear Algebra; Differential Equations",
-                        "Advanced Calculus; Abstract Algebra",
-                        "Mathematical Finance: Derivatives & Stochastic Models",
-                        "Transform Methods; Numerical Analysis"
-                    ]
-                },
-                {
-                    category: "CS",
-                    courses: [
-                        "Quantum Computing; Algorithms; Data Structures",
-                        "Computer Systems; Object-Oriented Programming",
-                        "Language Design"
-                    ]
-                },
-                {
-                    category: "Stat",
-                    courses: ["Applied Prob&Stat; Probability Theory"]
-                }
-            ]
+            coursework: []
         }
     ],
 
@@ -75,7 +44,7 @@ export const resumeData: ResumeData = {
             role: "AI Engineering MTS",
             department: "Applied Research:Project ISO",
             location: "Hybrid",
-            duration: "July 2025 - Present",
+            duration: "July 2025 - Present (Full-time since Jan 2026)",
             achievements: [
                 {
                     action: "Engineered",
@@ -93,9 +62,9 @@ export const resumeData: ResumeData = {
                     metrics: "increased cache-hit rate; reduced p50 latency and token cost"
                 },
                 {
-                    action: "Leading",
-                    description: "Tilli Agent (tilli.ai) launch for an",
-                    metrics: "initial 150k+ users; planned rollout to ~3M"
+                    action: "Driving",
+                    description: "Project ISO into closed beta and shipping Bridge, an enterprise ERP-automation offering",
+                    metrics: "~100k users; rolling out for Oracle, SAP, QuickBooks, FreshBooks"
                 }
             ]
         },
@@ -137,8 +106,8 @@ export const resumeData: ResumeData = {
                 },
                 {
                     action: "Revamped",
-                    description: "GitLab CI pipelines to remediate vulnerabilities and achieved a",
-                    metrics: "≈25% speedup and efficiency gains; ≈50% faster builds; ≈40% lower memory footprint for project-wide Docker base image"
+                    description: "GitLab CI + Docker pipelines to remediate vulnerabilities and improve build efficiency",
+                    metrics: "≈25% faster CI; ≈50% faster builds; ≈40% lower memory footprint for the project-wide Docker base image"
                 },
                 {
                     action: "Led",
@@ -146,8 +115,8 @@ export const resumeData: ResumeData = {
                     metrics: ""
                 },
                 {
-                    action: "Authored",
-                    description: "literature reviews on state-of-the-art Transformer models to inform future project strategies",
+                    action: "Synthesized",
+                    description: "state-of-the-art Transformer literature into internal design memos that guided downstream model selection and project roadmap",
                     metrics: ""
                 }
             ]
@@ -161,26 +130,12 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     action: "Optimized",
-                    description: "dataset loading with Dask and multithreading",
-                    metrics: "≈400%+ higher throughput, with real-time dataset visualization capabilities for large-scale analysis and feature extraction"
+                    description: "dataset ingestion + loading with Dask and multithreading for large longitudinal breathing datasets",
+                    metrics: "≈400%+ higher throughput on high-tens-of-GB/patient-day data; enabled real-time visualization for analysis + feature extraction"
                 },
                 {
-                    action: "Implemented",
-                    description: "supervised learning approaches for improved breath segmentation",
-                    metrics: ""
-                }
-            ]
-        },
-        {
-            company: "University of Maryland CMNS",
-            role: "Lead Teaching Assistant",
-            department: "CMSC351H (Algorithms Honors)",
-            location: "College Park, MD",
-            duration: "Spring 2024",
-            achievements: [
-                {
-                    action: "Co-designed and graded",
-                    description: "homeworks, exams, and lecture material for 38 honors students; held weekly office hours for advanced topic support",
+                    action: "Evaluated",
+                    description: "breath-segmentation baselines and sequence models (XGBoost, random forests, CRF, LSTM) to improve segmentation consistency",
                     metrics: ""
                 }
             ]
@@ -193,12 +148,12 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Open-source, agent-framework-agnostic implementation of Anthropic's Skills protocol that achieves full parity with their closed-source, first-party-only version"
+                "Open-source, agent-framework-agnostic implementation of Anthropic's Skills protocol with full parity vs their first-party version"
             ],
             achievements: [
                 {
                     type: "metric",
-                    description: "Matches and exceeds baseline skill activation by agents without manual prompting, by replacing the Anthropic `Skill` mcp-style tool approach with a clean CLI tool + AGENTS.md specification"
+                    description: "Only open-source implementation with full parity; improves skill activation without manual prompting via a CLI + AGENTS.md-driven spec"
                 }
             ]
         },
@@ -207,16 +162,16 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Open-source context-gathering tools (ask-docs-agent, fetch-docs, fetch-site) for agents that minimize token burn and latency while maximizing relevant information retrieval"
+                "Context tooling for agents (ask-docs-agent, fetch-docs, fetch-site) optimized for low latency + token efficiency"
             ],
             achievements: [
                 {
                     type: "metric",
-                    description: "fetch-docs tool outperforms Context7's MCP by wrapping their API to be more agent-friendly, reducing round-trip invocation to a single call"
+                    description: "fetch-docs wraps Context7 into a single agent-friendly call, avoiding multi-round tool trips"
                 },
                 {
                     type: "metric",
-                    description: "fetch-site tool achieves 25-50% lower token usage than most agent CLIs default `WebFetch` tools by auto-saving extracted content locally so agents can read what they need vs forcing full reads + re-fetches"
+                    description: "Cuts token usage by persisting fetched context locally and avoiding full re-fetches"
                 }
             ]
         },
@@ -225,56 +180,26 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Open-source tool that auto-generates user-friendly TUI interfaces for almost any command-line program by extracting arg info and man pages",
-                "Non-interactive mode for LLM agents enables easy learning of complex call-graphs and arg-structures for CLI tools, without guesswork or web searches"
+                "Auto-generates TUIs for CLIs by extracting arg info + manpages; includes a non-interactive mode for LLM agents"
             ],
             achievements: [
                 {
                     type: "metric",
-                    description: "Eliminates manual lookup of complex CLI arguments, reducing agent/human errors and improving usability"
+                    description: "Eliminates manual CLI argument lookup and reduces agent/human errors"
                 }
             ]
         },
-        // {
-        //     name: "systemzero/rewind",
-        //     role: "Solo Developer",
-        //     isActive: true,
-        //     description: [
-        //         "Open-source, agent-framework-agnostic implementation of Anthropic's Checkpointing + /rewind protocol that achieves full parity with their closed-source, first-party-only version"
-        //     ],
-        //     achievements: [
-                
-        //     ]
-        // },
         {
             name: "CoronaSafe",
             role: "Team Lead/Backend Developer",
             isActive: false,
             description: [
-                "Python/Flutter app for global COVID-19 risk assessment using time-weighted foot traffic and urban density analytics"
+                "Python/Flutter app for global COVID-19 risk assessment using time-weighted foot traffic + urban density analytics"
             ],
             achievements: [
                 {
                     type: "award",
-                    description: "Congressional App Challenge Winner: 2021 District MD08"
-                },
-                {
-                    type: "recognition",
-                    description: "Guest Speaker at USPTO's 2022 APPLY Yourself event"
-                }
-            ]
-        },
-        {
-            name: "Resourceful",
-            role: "Team Lead/Backend Developer",
-            isActive: false,
-            description: [
-                "NLP-driven matching tool connecting underrepresented students to resources (NLTK, spaCy, semantic similarity)"
-            ],
-            achievements: [
-                {
-                    type: "award",
-                    description: "Best Education @ 2022 Blairhacks_5 Hackathon"
+                    description: "Congressional App Challenge Winner (MD08)"
                 }
             ]
         }
@@ -282,7 +207,7 @@ export const resumeData: ResumeData = {
 
     skills: [
         {
-            category: "Agent Infrastructure",
+            category: "Agents/LLMs",
             primary: [
                 "MCP",
                 "Kosong",
@@ -290,20 +215,18 @@ export const resumeData: ResumeData = {
                 "DSPy/GEPA",
                 "Claude Code SDK",
                 "Google Agent ADK/A2A",
-                "Pocketflow",
                 "LiteLLM",
                 "Context Engineering"
             ]
         },
         {
-            category: "ML/AI",
+            category: "ML",
             primary: [
                 "Transformers",
                 "Agentic LLMs",
                 "RAG",
-                "Deep RL",
                 "Mechanistic Interpretability",
-                "GAIfO",
+                "Deep RL (GAIfO)",
                 "PyTorch",
                 "HuggingFace"
             ]
@@ -317,41 +240,22 @@ export const resumeData: ResumeData = {
                 "Docker",
                 "Git/GitLab CI",
                 "FastAPI",
-                "React"
+                "React",
+                "AWS",
+                "PostgreSQL/NeonDB"
             ],
             secondary: [
-                "Java",
-                "MATLAB",
-                "ROS",
-                "Qiskit"
-            ]
-        },
-        {
-            category: "Cloud & Data",
-            primary: [
-                "AWS (Bedrock, SageMaker, Lambda, Fargate)",
-                "PostgreSQL/NeonDB",
                 "Neo4j",
                 "Dask",
-                "Selenium/BeautifulSoup"
-            ]
-        },
-        {
-            category: "Quantitative Finance",
-            primary: [
-                "Stochastic Calculus",
-                "Black-Scholes",
-                "Delta Hedging"
+                "Java"
             ]
         },
         {
             category: "Recognitions",
             primary: [
-                "Interim Security Clearance",
-                "Congressional App Winner",
+                "Congressional App Challenge Winner (MD08)",
                 "Eagle Scout",
-                "National Merit Scholar",
-                "Dean's Scholarship"
+                "National Merit Scholar"
             ]
         }
     ],

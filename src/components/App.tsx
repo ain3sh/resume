@@ -5,13 +5,11 @@ import Controls from './utils/Controls';
 import { generatePDF } from './utils/customPDFGenerator';
 import { ThemeMode } from './utils/themeStyles';
 import resumeData from '../data/resumeData';
-import smallResumeData from '../data/smallResumeData';
 
 
 const App = () => {
     const targetRef = useRef<HTMLDivElement>(null);
     const [isDarkMode, setIsDarkMode] = useState(true); // default to dark mode
-    const [isFullResume, setIsFullResume] = useState(true); // default to full resume
     const [isCompressed, setIsCompressed] = useState(true); // default to compressed
     const [contentRect, setContentRect] = useState<DOMRect | null>(null);
     const [isPDFReady, setIsPDFReady] = useState(false);
@@ -22,7 +20,6 @@ const App = () => {
 
         // set states from URL if present
         const theme = params.get('theme');
-        const version = params.get('version');
         const compressed = params.get('compressed');
 
         if (theme) {
@@ -31,9 +28,6 @@ const App = () => {
             // fall back to window theme if no URL param
             setIsDarkMode(window.__REACT_THEME__ === 'dark');
         }
-        if (version) {
-            setIsFullResume(version === 'full');
-        }
         if (compressed) {
             setIsCompressed(compressed === 'true');
         }
@@ -41,13 +35,10 @@ const App = () => {
 
     // init data
     const currentTheme: ThemeMode = isDarkMode ? 'dark' : 'light';
-    const currentData = isFullResume ? resumeData : smallResumeData;
+    const currentData = resumeData;
     const currentScale = isCompressed ? 2 : 5; // adjust scale (2 = compressed, 5 = raw)
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
-    };
-    const toggleResumeVersion = () => {
-        setIsFullResume(!isFullResume);
     };
     const handleMeasure = (rect: DOMRect) => {
         setContentRect(rect);
@@ -57,7 +48,7 @@ const App = () => {
 
     const generatePDFHandler = () => {
         if (isPDFReady && targetRef.current && contentRect) {
-            const pdfFileName = `ain3sh-${isCompressed ? 'compressed' : 'raw'}-${isFullResume ? 'full' : 'min'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
+            const pdfFileName = `ain3sh-${isCompressed ? 'compressed' : 'raw'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
             generatePDF(targetRef.current, currentData, pdfFileName, {
                 scale: currentScale,
                 compress: isCompressed, // compress pdf
@@ -73,16 +64,13 @@ const App = () => {
         if (!isPDFReady || !targetRef.current || !contentRect) return;
 
         const configs = [ // format combinations to generate
-            { isDark: true, isFull: true, isCompressed: true },
-            { isDark: false, isFull: true, isCompressed: true },
-            { isDark: true, isFull: false, isCompressed: true },
-            { isDark: false, isFull: false, isCompressed: true }
+            { isDark: true },
+            { isDark: false }
         ];
 
         // store original states
         const originalStates = {
             isDark: isDarkMode,
-            isFull: isFullResume,
             isCompressed: isCompressed
         };
 
@@ -90,8 +78,6 @@ const App = () => {
             for (const config of configs) {
                 // update states
                 setIsDarkMode(config.isDark);
-                setIsFullResume(config.isFull);
-                setIsCompressed(config.isCompressed);
 
                 // wait for render
                 await new Promise(resolve => setTimeout(resolve, 100));
@@ -104,7 +90,6 @@ const App = () => {
             console.error("Error generating PDFs: ", error);
         } finally { // restore original states
             setIsDarkMode(originalStates.isDark);
-            setIsFullResume(originalStates.isFull);
             setIsCompressed(originalStates.isCompressed);
         }
     };
@@ -114,10 +99,8 @@ const App = () => {
         <div className={currentTheme}>
             <Controls
                 isDarkMode={isDarkMode}
-                isFullResume={isFullResume}
                 isCompressed={isCompressed}
                 toggleTheme={toggleTheme}
-                toggleResumeVersion={toggleResumeVersion}
                 setIsCompressed={setIsCompressed}
                 generatePDFHandler={generatePDFHandler}
                 isPDFReady={isPDFReady}

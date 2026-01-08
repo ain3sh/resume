@@ -22,8 +22,6 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
         projects, skills, publications
     } = data;
 
-    const isMin = personalInfo.links.some(link => link.type.includes(':'));
-
 
     return (
         <div
@@ -92,19 +90,8 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                 </p>
             </header>
 
-            <div className={`grid grid-cols-1 md:grid-cols-2
-                            ${isMin ? 'gap-20' : 'gap-14'}`}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
                 <div>
-                    <EducationSection
-                        education={education}
-                        theme={theme}
-                    />
-                    {isMin &&
-                        <PublicationsSection
-                            publications={publications}
-                            theme={theme}
-                        />
-                    }
                     <ProjectsSection
                         projects={projects}
                         theme={theme}
@@ -113,18 +100,20 @@ const Resume: React.FC<ResumeProps> = ({ data, theme }) => {
                         skills={skills}
                         theme={theme}
                     />
+                    <EducationSection
+                        education={education}
+                        theme={theme}
+                    />
                 </div>
                 <div>
                     <ExperienceSection
                         experience={experience}
                         theme={theme}
                     />
-                    {!isMin &&
-                        <PublicationsSection
-                            publications={publications}
-                            theme={theme}
-                        />
-                    }
+                    <PublicationsSection
+                        publications={publications}
+                        theme={theme}
+                    />
                 </div>
             </div>
         </div>
