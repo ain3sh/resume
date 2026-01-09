@@ -4,19 +4,38 @@ const path = require('path');
 const vm = require('vm');
 const ts = require('typescript');
 
+// Known profile query params (for CLI parsing)
+const PROFILE_PARAMS = ['base', 'keep', 'drop', 'tagBoost', 'tagFilter', 'limitTotal', 'limitPer', 'rewrite'];
+
 function parseArgs(argv) {
-  const args = { profile: 'default', out: 'typst/generated/resume_data.typ' };
+  const args = { out: 'typst/generated/resume_data.typ', query: new Map() };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
-    if (arg === '--profile') {
-      args.profile = argv[i + 1];
-      i += 1;
-    } else if (arg === '--out') {
+    if (arg === '--out') {
       args.out = argv[i + 1];
       i += 1;
+    } else if (arg === '--profile') {
+      // Legacy: --profile maps to --base
+      args.query.set('base', argv[i + 1]);
+      i += 1;
+    } else if (arg.startsWith('--')) {
+      const key = arg.slice(2);
+      if (PROFILE_PARAMS.includes(key)) {
+        args.query.set(key, argv[i + 1]);
+        i += 1;
+      }
     }
   }
   return args;
+}
+
+// Adapter to make Map work with parseProfileQuery's QueryParams interface
+function mapToQueryParams(map) {
+  return {
+    get(key) {
+      return map.get(key) ?? null;
+    },
+  };
 }
 
 function transpileTsToCjs(sourceText, fileName) {
@@ -140,7 +159,7 @@ function toTypst(value) {
 }
 
 function main() {
-  const { profile, out } = parseArgs(process.argv.slice(2));
+  const { out, query } = parseArgs(process.argv.slice(2));
   const repoRoot = path.resolve(__dirname, '../..');
 
   const resumeModule = loadTsModule(path.join(repoRoot, 'src/data/resumeData.ts'));
@@ -149,20 +168,26 @@ function main() {
     throw new Error('Could not load resume data from src/data/resumeData.ts');
   }
 
-  const profilesModule = loadTsModule(path.join(repoRoot, 'src/profiles/registry.ts'));
-  const getProfile = profilesModule.getProfile;
-  if (typeof getProfile !== 'function') {
-    throw new Error('Could not load getProfile from src/profiles/registry.ts');
+  const queryParserModule = loadTsModule(path.join(repoRoot, 'src/profiles/queryParser.ts'));
+  const parseProfileQuery = queryParserModule.parseProfileQuery;
+  if (typeof parseProfileQuery !== 'function') {
+    throw new Error('Could not load parseProfileQuery from src/profiles/queryParser.ts');
   }
 
-  const applied = getProfile(profile).apply(baseResume);
+  const profileTransform = parseProfileQuery(mapToQueryParams(query));
+  const applied = profileTransform(baseResume);
+
+  // Build query description for header
+  const queryDesc = query.size > 0
+    ? Array.from(query.entries()).map(([k, v]) => `${k}=${v}`).join('&')
+    : 'default';
 
   const outputAbs = path.resolve(repoRoot, out);
   fs.mkdirSync(path.dirname(outputAbs), { recursive: true });
 
   const header = [
     '// This file is auto-generated. Do not edit by hand.',
-    `// profile: ${profile}`,
+    `// query: ${queryDesc}`,
     '',
   ].join('\n');
 

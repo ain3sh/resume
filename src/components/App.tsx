@@ -1,47 +1,47 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 import '../index.css';
 import ResumeMeasureWrapper from './ResumeMeasureWrapper';
 import Controls from './utils/Controls';
 import { ThemeMode } from './utils/themeStyles';
 import resumeData from '../data/resumeData';
-import { DEFAULT_PROFILE_NAME, getProfile } from '../profiles/registry';
+import { parseProfileQuery } from '../profiles/queryParser';
 
 
 const App = () => {
     const targetRef = useRef<HTMLDivElement>(null);
     const [isDarkMode, setIsDarkMode] = useState(true); // default to dark mode
     const [isCompressed, setIsCompressed] = useState(true); // default to compressed
-    const [profileName, setProfileName] = useState(DEFAULT_PROFILE_NAME);
     const [contentRect, setContentRect] = useState<DOMRect | null>(null);
     const [isPDFReady, setIsPDFReady] = useState(false);
 
-    useEffect(() => { // update state from URL params
-        // check URL params
+    // Parse profile from URL query params (supports ?base=, ?tagBoost=, ?keep=, etc.)
+    const profileTransform = useMemo(() => {
         const params = new URLSearchParams(window.location.search);
+        // Support legacy ?profile= as alias for ?base=
+        if (params.has('profile') && !params.has('base')) {
+            params.set('base', params.get('profile')!);
+        }
+        return parseProfileQuery(params);
+    }, []);
 
-        // set states from URL if present
+    useEffect(() => { // update state from URL params
+        const params = new URLSearchParams(window.location.search);
         const theme = params.get('theme');
         const compressed = params.get('compressed');
-        const profile = params.get('profile');
 
         if (theme) {
             setIsDarkMode(theme === 'dark');
         } else if (window.__REACT_THEME__) {
-            // fall back to window theme if no URL param
             setIsDarkMode(window.__REACT_THEME__ === 'dark');
         }
         if (compressed) {
             setIsCompressed(compressed === 'true');
         }
-
-        if (profile) {
-            setProfileName(profile);
-        }
     }, []); // run once on mount
 
     // init data
     const currentTheme: ThemeMode = isDarkMode ? 'dark' : 'light';
-    const currentData = getProfile(profileName).apply(resumeData);
+    const currentData = profileTransform(resumeData);
     const currentScale = isCompressed ? 2 : 5; // adjust scale (2 = compressed, 5 = raw)
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);

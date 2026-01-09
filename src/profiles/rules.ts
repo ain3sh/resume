@@ -56,6 +56,26 @@ export function includeAchievementIds(ids: string[]) {
     };
 }
 
+export function excludeIds(ids: string[]) {
+    const drop = normalizeSet(ids);
+    return (data: ResumeData): ResumeData => {
+        const next = clone(data);
+        next.experience = next.experience
+            .filter(exp => !exp.id || !drop.has(exp.id))
+            .map(exp => ({
+                ...exp,
+                achievements: exp.achievements.filter(a => !a.id || !drop.has(a.id)),
+            }));
+        next.projects = next.projects
+            .filter(proj => !proj.id || !drop.has(proj.id))
+            .map(proj => ({
+                ...proj,
+                achievements: proj.achievements.filter(a => !a.id || !drop.has(a.id)),
+            }));
+        return next;
+    };
+}
+
 export function limitExperienceBullets(byExperienceId: Record<string, number>) {
     return (data: ResumeData): ResumeData => {
         const next = clone(data);
