@@ -30,6 +30,8 @@
         "start": "react-scripts start",
         "build": "cross-env PUBLIC_URL=/resume react-scripts build",
         "test": "react-scripts test",
+        "typst:data": "node typst/scripts/convert-ts-data-to-typst.js",
+        "typst:pdf": "node typst/scripts/build-pdf.js",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {

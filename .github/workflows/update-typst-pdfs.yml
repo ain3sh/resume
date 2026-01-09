@@ -1,0 +1,69 @@
+name: Update Typst PDFs
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'typst/**'
+      - 'src/data/**'
+      - 'src/profiles/**'
+      - 'src/types/**'
+      - '.github/**'
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: write
+
+jobs:
+  update-typst-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+        with:
+          typst-version: '^0.13.0'
+
+      - name: Generate Typst PDFs
+        run: |
+          npm run typst:pdf -- --theme dark
+          npm run typst:pdf -- --theme light
+
+      - name: Validate PDF generation
+        run: |
+          ls -la pdfs/
+          test -f pdfs/ain3sh-typst-dark-resume.pdf
+          test -f pdfs/ain3sh-typst-light-resume.pdf
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add pdfs/ain3sh-react-*.pdf pdfs/ain3sh-typst-*.pdf
+          git status
+
+          UNEXPECTED_CHANGES=$(git diff --name-only --diff-filter=M | grep -v '^pdfs/' || true)
+          if [ -n "$UNEXPECTED_CHANGES" ]; then
+            echo "❌ Unexpected changes detected outside pdfs/:"
+            echo "$UNEXPECTED_CHANGES"
+            exit 1
+          fi
+
+          if git diff --staged --quiet; then
+            echo "✅ No changes to commit"
+          else
+            git commit -m "🤖 Auto-updated Typst PDFs [skip ci]"
+            git push
+          fi

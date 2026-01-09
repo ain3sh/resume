@@ -1,9 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Resume from './resume/Resume';
+import resumeData from '../data/resumeData';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('renders resume header name', () => {
+  render(<Resume data={resumeData} theme="dark" />);
+  const nameElement = screen.getByText(resumeData.personalInfo.name);
+  expect(nameElement).toBeInTheDocument();
 });

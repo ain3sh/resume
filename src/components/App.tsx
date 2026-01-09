@@ -2,15 +2,16 @@ import { useRef, useState, useEffect } from 'react';
 import '../index.css';
 import ResumeMeasureWrapper from './ResumeMeasureWrapper';
 import Controls from './utils/Controls';
-import { generatePDF } from './utils/customPDFGenerator';
 import { ThemeMode } from './utils/themeStyles';
 import resumeData from '../data/resumeData';
+import { DEFAULT_PROFILE_NAME, getProfile } from '../profiles/registry';
 
 
 const App = () => {
     const targetRef = useRef<HTMLDivElement>(null);
     const [isDarkMode, setIsDarkMode] = useState(true); // default to dark mode
     const [isCompressed, setIsCompressed] = useState(true); // default to compressed
+    const [profileName, setProfileName] = useState(DEFAULT_PROFILE_NAME);
     const [contentRect, setContentRect] = useState<DOMRect | null>(null);
     const [isPDFReady, setIsPDFReady] = useState(false);
 
@@ -21,6 +22,7 @@ const App = () => {
         // set states from URL if present
         const theme = params.get('theme');
         const compressed = params.get('compressed');
+        const profile = params.get('profile');
 
         if (theme) {
             setIsDarkMode(theme === 'dark');
@@ -31,11 +33,15 @@ const App = () => {
         if (compressed) {
             setIsCompressed(compressed === 'true');
         }
+
+        if (profile) {
+            setProfileName(profile);
+        }
     }, []); // run once on mount
 
     // init data
     const currentTheme: ThemeMode = isDarkMode ? 'dark' : 'light';
-    const currentData = resumeData;
+    const currentData = getProfile(profileName).apply(resumeData);
     const currentScale = isCompressed ? 2 : 5; // adjust scale (2 = compressed, 5 = raw)
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
@@ -48,13 +54,16 @@ const App = () => {
 
     const generatePDFHandler = () => {
         if (isPDFReady && targetRef.current && contentRect) {
-            const pdfFileName = `ain3sh-${isCompressed ? 'compressed' : 'raw'}-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
-            generatePDF(targetRef.current, currentData, pdfFileName, {
-                scale: currentScale,
-                compress: isCompressed, // compress pdf
-                linkYOffset: 18, // link offset to align clickable area with text (larger = lower)
-                //debug: true, // set to true to show red link bounding boxes in PDF
-            })
+            const pdfFileName = `ain3sh-react-${isDarkMode ? 'dark' : 'light'}-resume.pdf`;
+            import('./utils/customPDFGenerator')
+                .then(({ generatePDF }) =>
+                    generatePDF(targetRef.current!, currentData, pdfFileName, {
+                        scale: currentScale,
+                        compress: isCompressed, // compress pdf
+                        linkYOffset: 18, // link offset to align clickable area with text (larger = lower)
+                        //debug: true, // set to true to show red link bounding boxes in PDF
+                    })
+                )
                 .then(() => console.log("PDF generated successfully"))
                 .catch((error: Error) => console.error("Error generating PDF: ", error));
         }

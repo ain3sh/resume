@@ -28,6 +28,7 @@ export const resumeData: ResumeData = {
 
     education: [
         {
+            id: "edu:umd",
             institution: "University of Maryland - College Park",
             degrees: [
                 "Dual BS in Computer Science (Machine Learning) and Mathematics"
@@ -40,6 +41,7 @@ export const resumeData: ResumeData = {
 
     experience: [
         {
+            id: "exp:tilli",
             company: "Tilli Software",
             role: "AI Engineering MTS",
             department: "Applied Research:Project ISO",
@@ -47,21 +49,29 @@ export const resumeData: ResumeData = {
             duration: "July 2025 - Present (Full-time since Jan 2026)",
             achievements: [
                 {
+                    id: "ach:tilli:agent-mvp",
+                    tags: ["agents", "mcp", "dspy", "cost"],
                     action: "Engineered",
                     description: "the Tilli Agent MVP (Kosong + DSPy + lastmileai/mcp-agent) to act autonomously on behalf of users, on any crawled site",
                     metrics: "at < $0.01/task"
                 },
                 {
+                    id: "ach:tilli:site2mcp",
+                    tags: ["mcp", "web", "automation", "extraction"],
                     action: "Developed",
                     description: "site2mcp and leading the effort to extract structured data from arbitrary sites and generated template-derived MCP servers (Kosong + browser-use + Claude Agent SDK)",
                     metrics: ""
                 },
                 {
+                    id: "ach:tilli:super-server",
+                    tags: ["architecture", "auth", "caching", "observability"],
                     action: "Architected",
                     description: "a shared, multi-tenant MCP Super-Server as a centralized auth and tool/resource store across usecases; instrumented automated performance logging for post-hoc analysis and GEPA-optimization pipelines,",
                     metrics: "increased cache-hit rate; reduced p50 latency and token cost"
                 },
                 {
+                    id: "ach:tilli:bridge",
+                    tags: ["shipping", "enterprise", "erp"],
                     action: "Driving",
                     description: "Project ISO into closed beta and shipping Bridge, an enterprise ERP-automation offering",
                     metrics: "~100k users; rolling out for Oracle, SAP, QuickBooks, FreshBooks"
@@ -69,6 +79,7 @@ export const resumeData: ResumeData = {
             ]
         },
         {
+            id: "exp:umd-crowd",
             company: "University of Maryland CMNS",
             role: "Student Researcher",
             department: "Crowd Simulation",
@@ -76,11 +87,15 @@ export const resumeData: ResumeData = {
             duration: "September 2024 - June 2025",
             achievements: [
                 {
+                    id: "ach:umd-crowd:non-euclidean",
+                    tags: ["research", "simulation", "geometry"],
                     action: "Investigated",
                     description: "non-Euclidean crowd navigation + interaction (Hilbert-ball/hyperbolic distances; curvature-aware costs)",
                     metrics: ""
                 },
                 {
+                    id: "ach:umd-crowd:transformers",
+                    tags: ["transformers", "navigation", "nlp"],
                     action: "Applied",
                     description: "transformer models for language-directed crowd navigation: map natural-language instructions to motion goals and primitives",
                     metrics: ""
@@ -88,6 +103,7 @@ export const resumeData: ResumeData = {
             ]
         },
         {
+            id: "exp:jhu-apl",
             company: "Johns Hopkins University Applied Physics Laboratory",
             role: "Computer Science Intern - Interim Security Clearance",
             department: "Force Projection Sector: Ocean Systems & Engineering Group",
@@ -95,26 +111,36 @@ export const resumeData: ResumeData = {
             duration: "May 2024 - Aug 2024",
             achievements: [
                 {
+                    id: "ach:jhu-apl:gaifo",
+                    tags: ["ml", "rl", "optimization"],
                     action: "Developed",
                     description: "an optimized GAIfO variant leveraging architectural insights",
                     metrics: "improved long-horizon performance versus prior iterations already outperforming baseline imitation models"
                 },
                 {
+                    id: "ach:jhu-apl:scrimmage",
+                    tags: ["simulation", "controllers"],
                     action: "Extended",
                     description: "GTRI's SCRIMMAGE mass-simulation framework with",
                     metrics: "higher scenario complexity and expert controller functionality"
                 },
                 {
+                    id: "ach:jhu-apl:ci",
+                    tags: ["ci", "docker", "security", "performance"],
                     action: "Revamped",
                     description: "GitLab CI + Docker pipelines: remediated vulnerabilities and improved build efficiency",
                     metrics: "≈25% faster CI; ≈50% faster builds; ≈40% lower memory footprint (project-wide Docker base image)"
                 },
                 {
+                    id: "ach:jhu-apl:intern-challenge",
+                    tags: ["leadership", "security", "navigation"],
                     action: "Led",
                     description: "the winning team for the sector Intern Challenge, delivering a secure, non-GPS intra-campus navigation prototype",
                     metrics: ""
                 },
                 {
+                    id: "ach:jhu-apl:memos",
+                    tags: ["transformers", "research", "writing"],
                     action: "Synthesized",
                     description: "state-of-the-art Transformer literature into internal design memos guiding downstream model selection and project roadmap",
                     metrics: ""
@@ -122,6 +148,7 @@ export const resumeData: ResumeData = {
             ]
         },
         {
+            id: "exp:umd-mind",
             company: "University of Maryland MIND Lab",
             role: "Research Intern",
             department: "Breathing Analysis Project",
@@ -129,11 +156,15 @@ export const resumeData: ResumeData = {
             duration: "October 2023 - December 2024",
             achievements: [
                 {
+                    id: "ach:umd-mind:dask",
+                    tags: ["data", "dask", "performance"],
                     action: "Optimized",
                     description: "dataset ingestion + loading with Dask and multithreading for longitudinal breathing datasets",
                     metrics: "≈400%+ higher throughput on high-tens-of-GB/patient-day data; enabled real-time visualization for analysis and feature extraction"
                 },
                 {
+                    id: "ach:umd-mind:segmentation",
+                    tags: ["ml", "timeseries"],
                     action: "Evaluated",
                     description: "breath-segmentation baselines and sequence models (XGBoost, random forests, CRF, LSTM) to improve segmentation consistency",
                     metrics: ""
@@ -144,6 +175,7 @@ export const resumeData: ResumeData = {
 
     projects: [
         {
+            id: "proj:openskills",
             name: "OpenSkills",
             role: "Solo Developer",
             isActive: true,
@@ -153,11 +185,14 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     type: "metric",
+                    id: "ach:openskills:parity",
+                    tags: ["open-source", "agents"],
                     description: "Only open-source implementation with full parity; improves skill activation without manual prompting via a CLI + AGENTS.md-driven spec"
                 }
             ]
         },
         {
+            id: "proj:context-mcp",
             name: "context-mcp",
             role: "Solo Developer",
             isActive: true,
@@ -167,15 +202,20 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     type: "metric",
+                    id: "ach:context-mcp:fetch-docs",
+                    tags: ["mcp", "latency"],
                     description: "fetch-docs wraps Context7 into a single agent-friendly call, avoiding multi-round tool trips"
                 },
                 {
                     type: "metric",
+                    id: "ach:context-mcp:caching",
+                    tags: ["token-efficiency", "caching"],
                     description: "Cuts token usage by persisting fetched context locally and avoiding full re-fetches"
                 }
             ]
         },
         {
+            id: "proj:climb-cli",
             name: "climb-cli",
             role: "Solo Developer",
             isActive: true,
@@ -185,11 +225,14 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     type: "metric",
+                    id: "ach:climb-cli:tui",
+                    tags: ["cli", "agents"],
                     description: "Eliminates manual CLI argument lookup and reduces agent/human errors"
                 }
             ]
         },
         {
+            id: "proj:coronasafe",
             name: "CoronaSafe",
             role: "Team Lead/Backend Developer",
             isActive: false,
@@ -199,6 +242,8 @@ export const resumeData: ResumeData = {
             achievements: [
                 {
                     type: "award",
+                    id: "ach:coronasafe:congressional",
+                    tags: ["award", "mobile"],
                     description: "Congressional App Challenge Winner (MD08)"
                 }
             ]

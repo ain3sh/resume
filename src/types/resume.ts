@@ -11,6 +11,7 @@ export interface ResumeData {
 }
 
 export interface Education {
+    id?: string;
     institution: string;
     degrees: string[];
     graduation: string;
@@ -23,12 +24,15 @@ export interface Education {
 }
 
 export interface Experience {
+    id?: string;
     company: string;
     role: string;
     department?: string;
     location: string;
     duration: string;
     achievements: {
+        id?: string;
+        tags?: string[];
         action: string;
         description: string;
         metrics?: string;
@@ -36,11 +40,14 @@ export interface Experience {
 }
 
 export interface Project {
+    id?: string;
     name: string;
     role: string;
     isActive: boolean;
     description: string[];
     achievements: {
+        id?: string;
+        tags?: string[];
         type: 'award' | 'recognition' | 'metric';
         description: string;
     }[];
