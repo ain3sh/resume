@@ -1,4 +1,4 @@
-name: Update PDFs
+name: Update React PDFs
 on:
   workflow_dispatch: # allows manual trigger
   push:
@@ -85,6 +85,6 @@ jobs:
           else
             echo "📝 Committing updated PDFs..."
             # skip ci stops workflow runs (since just updating pdfs)
-            git commit -m "🤖 Auto-updated PDFs [skip ci]"
+            git commit -m "🤖 Auto-updated React PDFs [skip ci]"
             git push
           fi

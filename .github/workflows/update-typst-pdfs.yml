@@ -51,7 +51,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git add pdfs/ain3sh-react-*.pdf pdfs/ain3sh-typst-*.pdf
+          git add pdfs/ain3sh-typst-*.pdf
           git status
 
           UNEXPECTED_CHANGES=$(git diff --name-only --diff-filter=M | grep -v '^pdfs/' || true)
