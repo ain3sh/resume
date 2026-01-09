@@ -5,7 +5,8 @@
   let t = get-theme(theme-name)
 
   set page(
-    paper: "us-letter",
+    width: 8.5in,
+    height: 12.5in,  // Custom height to fit content on one page
     margin: (top: 0.35in, bottom: 0.3in, left: 0.55in, right: 0.55in),
     fill: t.background,
   )
