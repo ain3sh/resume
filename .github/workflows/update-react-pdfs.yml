@@ -86,5 +86,10 @@ jobs:
             echo "📝 Committing updated PDFs..."
             # skip ci stops workflow runs (since just updating pdfs)
             git commit -m "🤖 Auto-updated React PDFs [skip ci]"
-            git push
+            # Retry push with rebase to handle concurrent workflow commits
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "⚠️ Push failed, retrying ($i/3)..."
+              sleep 5
+            done
           fi
