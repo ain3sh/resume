@@ -2,7 +2,7 @@ import { ResumeData } from '../types/resume';
 
 export const resumeData: ResumeData = {
     metadata: {
-        lastUpdated: "2026-01-08"
+        lastUpdated: "2026-01-12"
     },
 
     personalInfo: {
@@ -180,7 +180,7 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Open-source, agent-framework-agnostic implementation of Anthropic's Skills protocol with full parity vs their first-party version"
+                "Open-source, agent-framework-agnostic implementation of Anthropic's Skills protocol with full parity vs their first-party version — github.com/ain3sh/openskills"
             ],
             achievements: [
                 {
@@ -192,12 +192,35 @@ export const resumeData: ResumeData = {
             ]
         },
         {
+            id: "proj:codecanvas",
+            name: "CodeCanvas",
+            role: "Solo Developer",
+            isActive: true,
+            description: [
+                "MCP tool for code-editing agents that emits image-based architecture/impact maps + a persistent Evidence Board — github.com/ain3sh/codecanvas"
+            ],
+            achievements: [
+                {
+                    type: "metric",
+                    id: "ach:codecanvas:backtracking",
+                    tags: ["agents", "performance", "observability"],
+                    description: "Reduced average agent backtracking from 4.57→2.14 vs text-only baseline across a 7-task Terminal-Bench 2.0 eval subset"
+                },
+                {
+                    type: "metric",
+                    id: "ach:codecanvas:impact-evidence",
+                    tags: ["mcp", "architecture", "automation"],
+                    description: "Built LSP-first + tree-sitter fallback call-graph analysis, returning all agent-facing artifacts as PNG images (architecture, impact slices, task board); added hooks to auto-init on session start and auto-impact after file reads"
+                }
+            ]
+        },
+        {
             id: "proj:context-mcp",
             name: "context-mcp",
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Context tooling for agents (ask-docs-agent, fetch-docs, fetch-site) optimized for low latency + token efficiency"
+                "Context tooling for agents (ask-docs-agent, fetch-docs, fetch-site) optimized for low latency + token efficiency — github.com/ain3sh/context-mcp"
             ],
             achievements: [
                 {
@@ -220,7 +243,7 @@ export const resumeData: ResumeData = {
             role: "Solo Developer",
             isActive: true,
             description: [
-                "Auto-generates TUIs for CLIs by extracting arg info + manpages; includes a non-interactive mode for LLM agents"
+                "Auto-generates TUIs for CLIs by extracting arg info + manpages; includes a non-interactive mode for LLM agents — github.com/ain3sh/climb-cli"
             ],
             achievements: [
                 {
@@ -237,7 +260,7 @@ export const resumeData: ResumeData = {
             role: "Team Lead/Backend Developer",
             isActive: false,
             description: [
-                "Python/Flutter app for global COVID-19 risk assessment using time-weighted foot traffic + urban density analytics"
+                "Python/Flutter app for global COVID-19 risk assessment using time-weighted foot traffic + urban density analytics — github.com/ain3sh/coronasafe"
             ],
             achievements: [
                 {
