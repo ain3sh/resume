@@ -28,12 +28,12 @@
         #render-skills(resume.skills, theme)
         #v(0.28em)
         #render-publications(resume.publications, theme)
-        #v(0.28em)
-        #render-education(resume.education, theme)
       ],
 
       [
         #render-experience(resume.experience, theme)
+        #v(0.28em)
+        #render-education(resume.education, theme)
       ],
     )
   })
